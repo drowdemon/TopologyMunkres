@@ -34,8 +34,10 @@
   $$((X-A)\times Y)\cup (X\times (Y-B))$$
   which is precisely the complement of $A\times B$.
   \item Show that if $U$ is open in $X$ and $A$ is closed in $X$, then $U-A$ is open in $X$, and $A-U$ is closed in $X$.\n
-  \indent $U,A\subset X$, therefore $U-A = U\cap(X-A)$. $U$ and $X-A$ are both open in $X$, so their intersection is open, so $U-A$ is open.\n
-  Similarly, $A-U=A\cap (X-U)$. $X-U$ and $A$ are both closed sets, thus their intersection is closed, so $A-U$ is closed.
+  \indent $U,A\subset X$, therefore $U-A = U\cap(X-A)$. $U$ and $X-A$ are both open in $X$, so their intersection is open, so $U-A$ is open.\hspace{5in}\n
+  Similarly, $A-U=A\cap (X-U)$. $X-U$ and $A$ are both closed sets, thus their intersection is closed, so $A-U$ is closed. \hspace{5in}
+  \item Let $X$ be an ordered set in the order topology. Show that $\overline{(a,b)} \subset [a,b]$. Under what conditions does equality hold? \n
+  \indent If $X$ has a minimum or a maximum, denote the minimum by $m$ and the maximum by $n$. Then $X-(a,b) = [m,a) \cup (b, n]$. Otherwise, $X-(a,b)=(-\infty,a]\cup[b,\infty)$. Generally, neither of these sets are open, as an open set in the order topology is an open interval, except at the endpoints. Thus the closure includes $a$ and $b$. The only case where it does not is when $a$ has an immediate successor and $b$ has an immediate predecessor. Then the set $[m,a]$ can be written as $[m,a+1)$, likewise with $b$. The union of these is open, thus in this case $(a,b)$ is it's own closure. Therefore, $\overline{(a,b)}=[a,b]$ if $a$ has no immediate successor and $b$ has no immediate predecessor.\n
+  \item
 \end{enumerate}
-
 \end{document}
