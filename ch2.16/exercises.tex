@@ -1,0 +1,47 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[pdftex]{graphicx}
+\usepackage{alltt}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage{verbatim}
+\usepackage{ragged2e}
+\usepackage{enumitem}
+\usepackage{xfrac}
+\setlist{parsep=0pt,listparindent=\parindent}
+\setlength{\RaggedRightParindent}{\parindent}
+\newcommand{\degree}{\ensuremath{^\circ}}
+\newcommand{\n}{\break}
+\let\oldemptyset\emptyset
+\let\emptyset\varnothing
+\newcommand{\Wlog}{without loss of generality}
+\newcommand{\WLOG}{Without loss of generality}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%THIS DOCUMENT ONLY%
+\newcommand{\T}{\ensuremath{\mathcal{T}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\RaggedRight
+\begin{enumerate}
+  \setcounter{enumi}{7}
+  \item If $L$ is a straight line in the plane, describe the topology $L$ inherits as a subspace of $\mathbb{R}_l \times \mathbb{R}$ and as a subspace of $\mathbb{R}_l\times\mathbb{R}_l$ \hspace{5in}.\n
+  \indent Let $L$ be the set of all points $x\times \alpha x+\beta$, for some real $\alpha, \beta$. Then, the interval $[a,b]\times [a\alpha+\beta, b\alpha+\beta] = [a\times\alpha a+\beta, b\times\alpha b + \beta]$ is an interval of $L$. Any open interval of $L$ is a subset of a closed interval of this form. \n
+  $\mathbb{R}_l\times\mathbb{R}$ has a basis consisting of all intervals $[x_1,x_2) \times (y_1,y_2) = \{x\times y \;|\; x_1\leq x < x_2 \wedge y_1<y<y_2\}$. Now consider a set of the subspace topology
+  $$U = [x_1, x_2) \times (y_1, y_2) \cap [a,b)\times(a\alpha+\beta, b\alpha+\beta)$$ The intervals of $L$ are written like this because $L$ must be a subset of $\mathbb{R}_l\times\mathbb{R}$.
+  Now there are several cases.
+  \begin{enumerate}
+    \item[case 1] $\alpha>0$. Then, each written interval on the line is a basis for the subspace topology, forming the topology $\mathbb{R}_l$.
+    \item[case 2] $\alpha=0$. By taking $y_1<\beta<y_2$, one easily all sets of the line, forming $\mathbb{R}_l$.
+    \item[case 3] $\alpha<0$. Then one must actually consider the line as $[a,b)\times(b\alpha+\beta, a\alpha+\beta)$, again forming $\mathbb{R}_l$
+    \item[case 4] The line is vertical. One includes the sole $x$ value as one included the $y$ value in a horizontal line, generating $\mathbb{R}$.
+  \end{enumerate}
+  Using $\mathbb{R}_l\times\mathbb{R}_l$, the procedure is the same, except that just as horizontal lines had the topology $\mathbb{R}_l$, vertical lines also do here.
+  \item Show that the dictionary order topology $\T_o$ on the set $\mathbb{R}\times\mathbb{R}$ is the same as the product topology $\T_p$ on $\mathbb{R}_d\times\mathbb{R}$, where $\mathbb{R}_d$ denotes $\mathbb{R}$ in the discrete topology. Compare this topology with the standard topology on $\mathbb{R}^2$.\n
+  \indent Consider a basis interval of $\T_o$: $(a\times b, c\times d)$, and a point $x\times y$ that lies in this interval. There exists a basis element $[x,x] \times (b,d)$ of $\T_p$ that lies in the basis element of $\T_o$. Likewise when $a=c$.
+  On the other hand, given a basis element $[a,c]\times (b,d)$ of $\T_p$ and a point $x \times y$ in this interval, there is a basis element of $\T_o$ containing this point that lies in the given basis interval. The nontrivial case here is the point $a \times y$. This lies in the basis set $(a\times b, a\times d)$ of the order topology (a vertical line with $x=a$).
+  Since these two topologies are each finer than the other, they are equal. \n
+  These topologies are finer than the standard topology, since given a basis element $[a,c]\times (b,d)$ of $\T_p$, there does not exist a basis element of the standard topology that contains the point $a\times y$.
+\end{enumerate}
+
+\end{document}

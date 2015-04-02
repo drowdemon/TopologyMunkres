@@ -1,0 +1,74 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[pdftex]{graphicx}
+\usepackage{alltt}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage{verbatim}
+\usepackage{ragged2e}
+\usepackage{enumitem}
+\setlist{parsep=0pt,listparindent=\parindent}
+\setlength{\RaggedRightParindent}{\parindent}
+\newcommand{\degree}{\ensuremath{^\circ}}
+\newcommand{\n}{\break}
+\let\oldemptyset\emptyset
+\let\emptyset\varnothing
+\newcommand{\Wlog}{without loss of generality}
+\newcommand{\WLOG}{Without loss of generality}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%THIS DOCUMENT ONLY%
+\newcommand{\T}{\ensuremath{\mathcal{T}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\RaggedRight
+\begin{enumerate}
+\item Let $X$ be a topological space; let $A$ be a subset of $X$.
+Suppose that for each $x\in A$ there is an open set $U$ containing $x$ such that $U \subset A$.
+Show that $A$ is open in $X$. \n
+\indent Define $A'$ as the union of all such open sets $U$ . Since each $x\in A$ is in one such set $U$, $A\subset A'$. Since each such $U \subset A$, $A' \subset A$. Thus $A'=A$.
+The union of open sets is a open set, thus $A$ is an open set.
+\addtocounter{enumi}{2}
+\item 
+  \begin{enumerate}
+  \item If $\{\mathcal{T}_a\}$ is a family of topologies on $X$, show that $\bigcap \mathcal{T}_a$ is a topology on $X$.
+    Is $\bigcup \mathcal{T}_a$ a topology on $X$?\n
+    \indent Define $\mathcal{T}_b=\bigcup \mathcal{T}_a$. Consider sets $A_1,A_2\in \mathcal{T}_b$.
+    By definition, these exist in every topology $\mathcal{T}_a$; since these are topologies, $A_1\cup A_2$ exists in each one, and thus in the intersection.
+    The argument is identical for finite intersections of sets $A_i\in \mathcal{T}_b$ \n
+    \indent $\bigcup \mathcal{T}_a$ is not a topology on $X$. Consider $X$ = $\{a,b,c\}$, $\mathcal{T}_1=\{\emptyset,\{1\},X\}$, $\mathcal{T}_2=\{\emptyset,\{2\},X\}$. The union of these sets is not a topology.
+  \item Let $\{\mathcal{T}_a\}$ is a family of topologies on $X$. Show that there is a unique smallest topology on $X$ containing all the collections $\mathcal{T}_a$, and a unique largest topology contained in all $\mathcal{T}_a$.\n
+    The union as the subbasis and the intersection of all the sets respectively.
+  \addtocounter{enumii}{1}
+  \end{enumerate}
+  \addtocounter{enumi}{1}
+\item Show that the topologies of $\mathbb{R}_l$ and $\mathbb{R}_K$ are not comparable. \n
+  \indent Let $\mathcal{T}$ and $\mathcal{T}'$ be the topologies of $\mathbb{R}_l$ and $\mathbb{R}_K$ respectively.
+  Given a basis element $[x,b)$ for $\T$, there is no open interval in $\T '$ that contains $x$ and lies in $[x,b)$.
+  On the other hand, give a basis element $B = (-1, 1) - K$, there is no interval in $\T$ that contains 0.
+\item Consider the following topologies on $\mathbb{R}$
+  \begin{enumerate}
+  \item[] $\T_1$ = the standard topology
+  \item[] $\T_2$ = the topology of $\mathbb{R}_K$
+  \item[] $\T_3$ = the finite complement topology
+  \item[] $\T_4$ = the upper limit topology, having all sets $(a,b\,]$ as a basis
+  \item[] $\T_5$ = the topology having all sets $(-\infty, a) = \{x\, |\, x<a\}$ as a basis
+  \end{enumerate}
+  Determine, for each of these topologies, which of the others it contains.\n
+  \indent Previously, $\T_1 \subset \T_2;\; \T_1 \subset \T_4$, as the proof for the upper limit topology is the same as the one for the lower limit topology.\n
+  Comparing $\T_1$ and $\T_3$: the open interval $(0,1)$ is a basis element of $\T_1$, thus it is a member of $\T_1$, however it is not a member of the finite complement topology, as $\mathbb{R}-(0,1)$ is infinite.
+  On the other hand, an open set $U$ of $\T_3$ exists such that $\mathbb{R} - U$ is finite, i.e. $\mathbb{R} - U = \{a_1, a_2, a_3, ... , a_n\}$, with $a_i < a_{i+1}$ The open sets between any $a_i$ and $a_{i+1}$ are in $\T_1$. Thus, $\T_1\supset\T_3$.\hspace{5in}\n 
+  Finally, comparing $\T_1$ and $\T_5$: given a basis element $(a, b)$ for $\T_1$, there is clearly no basis element in $\T_5$ that lies in $(a,b)$. On the other hand, given a basis element $(-\infty, c)$ for $\T_5$ and a point $x\in(-\infty, c)$, there clearly exists an open set that cointains $x$ and lies in $(-\infty, c)$. Thus, $\T_1\supset \T_5$.\hspace{5in} \n
+  \indent Comparing, $\T_2$ and $\T_4$: given a basis element $(a, b]$ for $\T_4$, there is no open set in $\T_2$ that lies in $(a,b]$. However, given an open interval there is clearly a set in the basis $\T_4$ that lies within it, and given $x\in(a,b)-K = U \subset \T_2$, there exists a set $A\subset U$ which contains $x$ and is in the basis of $\T_4$. If $x>1$ or $x<0$, this is obvious. Otherwise, set $t$ equal to the greatest value $1/n$ such that $t<x$. If $t>a$ use the interval define $A=(t,x]$, otherwise $A=(a,x]$. There are no elements of $K$ in $A$. Thus, $\T_2 \subset \T_4$\n 
+  \indent What remains is to compare $\T_3$ and $\T_5$. None of the elements of $\T_5$ are such that their complement with respect to the reals is finite, these two topologies are uncomparable.\n
+  Overall, $\T_3,\T_5\subset\T_1\subset\T_2\subset\T_4$; $T_3$ and $T_5$ are uncomparable.
+\item
+  \begin{enumerate}
+  \item Apply Lemma 13.2 to show that the countable collection $$\mathcal{B}=\{(a,b)\,|\, a<b, a,b \text{ are rational}\}$$ is a basis that generates the standard topology on $\mathbb{R}$.\n
+    \indent For each $x$ in each open set $U$ of the topology on $\mathbb{R}$, there exist rational $a,b$ such that $x\in (a,b)\in U$. One can always choose a rational value between any two reals, i.e. between $a$ and $x$ and between $x$ and $b$. Thus $\mathcal{B}$ is a basis for $\mathbb{R}$.
+  \item Show that the collection $$\mathcal{C}=\{[a,b)\,|\, a<b, a,b \text{ are rational}\}$$ is a basis that generates a topology different from the lower limit topology on $\mathbb{R}$. \n
+    \indent Given the open set $[a,b)$, where $a$ is an irrational value, there exists no interval in $\mathcal{C}$ that lies in $[a,b)$ and contains $a$. Thus $\mathcal{C}$ does not generate the lower limit topology on $\mathbb{R}$.
+  \end{enumerate}
+\end{enumerate}
+
+\end{document}

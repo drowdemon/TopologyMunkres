@@ -1,0 +1,41 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[pdftex]{graphicx}
+\usepackage{alltt}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage{verbatim}
+\usepackage{ragged2e}
+\usepackage{enumitem}
+\usepackage{xfrac}
+\setlist{parsep=0pt,listparindent=\parindent}
+\setlength{\RaggedRightParindent}{\parindent}
+\newcommand{\degree}{\ensuremath{^\circ}}
+\newcommand{\n}{\break}
+\let\oldemptyset\emptyset
+\let\emptyset\varnothing
+\newcommand{\Wlog}{without loss of generality}
+\newcommand{\WLOG}{Without loss of generality}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%THIS DOCUMENT ONLY%
+\newcommand{\T}{\ensuremath{\mathcal{T}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\RaggedRight
+\begin{enumerate}
+  \item Let $\mathcal{C}$ be a collection of subsets of the set $X$. Suppose that $\emptyset$ and $X$ are in $\mathcal{C}$, and that finite unions and arbitrary intersections of elements of $\mathcal{C}$ are in $\mathcal{C}$. Show that the collection $$\T = \{X-C\; |\; C\in\mathcal{C}\}$$ is a topology on $X$.\n
+  \indent See Theorem 17.1, proof proceeds similarly, just looking at the opposite side of the equations.
+  \item Show that if $A$ is closed in $Y$ and $Y$ is closed in $X$, then $A$ is closed in $X$.\n
+  \indent Since $A$ is closed in $Y$, by theorem 17.2, there exists a set $D$ closed in $X$ such that $A=Y\cap D$.
+  $Y$ and $D$ are both closed in $X$, and by Theorem 17.1 intersections of closed sets are closed, so $Y\cap D$ is closed, hence $A$ is closed in $X$.
+  \item Show that if $A$ is closed in $X$ and $B$ is closed in $Y$, then $A\times B$ is closed in $X\times Y$.\n
+  \indent Consider the set $\pi_1^{-1}(X-A)$. This is equivalent to the open set $(X-A)\times Y$, which is open since both $X-A$ and $Y$ are open. Similarly, $\pi_2^{-1}(Y-B)$ is open. The union of these is an open set, since the union of any two open sets is open.
+  $$((X-A)\times Y)\cup (X\times (Y-B))$$
+  which is precisely the complement of $A\times B$.
+  \item Show that if $U$ is open in $X$ and $A$ is closed in $X$, then $U-A$ is open in $X$, and $A-U$ is closed in $X$.\n
+  \indent $U,A\subset X$, therefore $U-A = U\cap(X-A)$. $U$ and $X-A$ are both open in $X$, so their intersection is open, so $U-A$ is open.\n
+  Similarly, $A-U=A\cap (X-U)$. $X-U$ and $A$ are both closed sets, thus their intersection is closed, so $A-U$ is closed.
+\end{enumerate}
+
+\end{document}
