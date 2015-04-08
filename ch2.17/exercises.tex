@@ -43,41 +43,146 @@
   \item Let $X$ be an ordered set in the order topology. Show that $\overline{(a,b)} \subset [a,b]$. Under what conditions does equality hold? \n
   \indent If $X$ has a minimum or a maximum, denote the minimum by $m$ and the maximum by $n$. Then $X-(a,b) = [m,a) \cup (b, n]$. Otherwise, $X-(a,b)=(-\infty,a]\cup[b,\infty)$. Generally, neither of these sets are open, as an open set in the order topology is an open interval, except at the endpoints. Thus the closure includes $a$ and $b$. The only case where it does not is when $a$ has an immediate successor and $b$ has an immediate predecessor. Then the set $[m,a]$ can be written as $[m,a+1)$, likewise with $b$. The union of these is open, thus in this case $(a,b)$ is it's own closure. Therefore, $\overline{(a,b)}=[a,b]$ if $a$ has no immediate successor and $b$ has no immediate predecessor.\n
   \item Let $A, B$, and $A_a$ denote subsets of a space $X$. Prove the following: 
-    \begin{enumerate}
-      \item If $A\subset B$, then $\bar{A}\subset\bar{B}$. 
-      \item $\overline{A\cup B} = \bar{A}\cup \bar{B}$.
-      \item $\overline{\bigcup A_a} \supset \bigcup \bar{A}_a$; give an example where equality fails.
-    \end{enumerate}
-    Solutions:
-    \begin{enumerate}
+  \begin{enumerate}
+    \item If $A\subset B$, then $\bar{A}\subset\bar{B}$. 
+    \item $\overline{A\cup B} = \bar{A}\cup \bar{B}$.
+    \item $\overline{\bigcup A_a} \supset \bigcup \bar{A}_a$; give an example where equality fails.
+  \end{enumerate}
+  Solutions:
+  \begin{enumerate}
     \item Proceeding by contradiction, $\bar{A}$ contains at least one element $x$ which is not an element of $\bar{B}$, implying by theorem 17.5 that every open set containing $x$ interesects $A$. Since $A\subset B$, then every open set containing $x$ intersects $B$, implying that $x\in B$, a contradiction.
     \item Consider $x\subset \bar{A}\cup\bar{B}$. Every open set that contains $x$ intersects $A$ or $B$, equivalently it intersects either $A\cup B$. Thus, it is in $\overline{A\cup B}$. Therefore, $\bar{A}\cup\bar{B} \subset \overline{A\cup B}$.\n
-      \indent Consider the other direction. Let $C=A\cup B$. Then $\bar{C}\subset\bar{A}\cup\bar{B}$, so $C\cup C' \subset A \cup B \cup A' \cup B'$, implying that $C' \subset A' \cup B'$ is equivalent to what is to be proven. By contradiction, suppose $x$ is an element of $C'$ but neither $A'$ nor $B'$. Presume $x$ is in neither $A$ nor $B$, as that is a trivial case. Then there exists a neighborhood $U$ of $x$ in $X$ that intersects $A$ but not $B$, and a neighborhood $V$ of $X$ that intersects $B$ but not $A$. Consider the intersection of these neighboorhoods, $U\cap V$. This is an open set containing $X$ an no elements of either $A$ or $B$, thus it does not intersect $A\cup B$, so $x$ is not in $\bar{C}$, so $x$ is not in $C'$, a contradiction. Thus $\overline{A\cup B}\subset \bar{A}\cup\bar{B}$, implying that $\overline{A\cup B}=\bar{A}\cup\bar{B}$.
+    \indent Consider the other direction. Let $C=A\cup B$. Then $\bar{C}\subset\bar{A}\cup\bar{B}$, so $C\cup C' \subset A \cup B \cup A' \cup B'$, implying that $C' \subset A' \cup B'$ is equivalent to what is to be proven. By contradiction, suppose $x$ is an element of $C'$ but neither $A'$ nor $B'$. Presume $x$ is in neither $A$ nor $B$, as that is a trivial case. Then there exists a neighborhood $U$ of $x$ in $X$ that intersects $A$ but not $B$, and a neighborhood $V$ of $X$ that intersects $B$ but not $A$. Consider the intersection of these neighboorhoods, $U\cap V$. This is an open set containing $X$ an no elements of either $A$ or $B$, thus it does not intersect $A\cup B$, so $x$ is not in $\bar{C}$, so $x$ is not in $C'$, a contradiction. Thus $\overline{A\cup B}\subset \bar{A}\cup\bar{B}$, implying that $\overline{A\cup B}=\bar{A}\cup\bar{B}$.
     \item If $x$ is in $\bigcup \bar{A}_a$, then every open set that contains $x$ intersects some element $A_a$, thus it intersects $\bigcup A_a$, thus it is in $\overline{\bigcup A_a}$, thus $\overline{\bigcup A_a} \supset\bigcup\bar{A}_a$. For a case where equality fails, consider the case when $\bigcup A_a$ is a union of infinitely many sets. Then there can exist an $x$ such that all of its neighborhoods intersect $\bigcup A_a$, but not all of its neighborhoods intersect any particular $A_a$. For example, $A_n=\{1/n\}$: $\overline{\bigcup A_a}$ contains 0.
-    \end{enumerate}
+  \end{enumerate}
   \item Criticize the following ``proof'' that $\overline{\bigcup A_a} \subset \bigcup \bar{A}_a$: if $\{A_a\}$ is a collection of sets in $X$ and if $x\in\overline{\bigcup A_a}$, then every neighborhood $U$ of $x$ intersects $\bigcup A_a$. Thus $U$ must intersect some $A_a$, so that $x$ must belong to the closure of some $A_a$. Therefore, $x\in\bigcup\bar{A_a}$.\n
-    \indent $U$ must intersect \emph{some} $A_a$, but not every $U$ intersects the same $A_a$. 
+  \indent $U$ must intersect \emph{some} $A_a$, but not every $U$ intersects the same $A_a$. 
   \item Let $A, B$, and $A_a$ denote subsets of a space $X$. Determine whether the following equations hold; if an equality fails, determine whether one of the inclusions $\supset$ or $\subset$ holds.
-    \begin{enumerate}
+  \begin{enumerate}
     \item $\overline{A\cap B} = \bar{A}\cap\bar{B}$.\hspace{5in}\n
-      \indent Consider an element $x$ of $\overline{A \cap B}$. Every neighborhood of $x$ intersects $A\cap B$, thus intersecting both $A$ and $B$, thus $x$ is in both $\bar{A}$ and $\bar{B}$. Therefore, $\overline{A\cap B}\subset \bar{A}\cap\bar{B}$. In the other direction, consider $x$ in $\bar{A}\cap\bar{B}$. Specifically, consider an $x$ that is not in $A$ or $B$, but is in both $\bar{A}$ and $\bar{B}$. Such an element might not be in $\overline{A\cap B}$. For example, consider $A=\mathbb{R}_+$ and $B=\mathbb{R}_-$. Both closures contain $0$, but the intersection of these sets is empty. Thus equality does not hold, only $\overline{A\cap B}\subset \bar{A}\cap{B}$.
+    \indent Consider an element $x$ of $\overline{A \cap B}$. Every neighborhood of $x$ intersects $A\cap B$, thus intersecting both $A$ and $B$, thus $x$ is in both $\bar{A}$ and $\bar{B}$. Therefore, $\overline{A\cap B}\subset \bar{A}\cap\bar{B}$. In the other direction, consider $x$ in $\bar{A}\cap\bar{B}$. Specifically, consider an $x$ that is not in $A$ or $B$, but is in both $\bar{A}$ and $\bar{B}$. Such an element might not be in $\overline{A\cap B}$. For example, consider $A=\mathbb{R}_+$ and $B=\mathbb{R}_-$. Both closures contain $0$, but the intersection of these sets is empty. Thus equality does not hold, only $\overline{A\cap B}\subset \bar{A}\cap{B}$.
     \item $\overline{\bigcap A_a} = \bigcap\bar{A}_a$.\hspace{5in}\n
-      \indent The same argument as above applies. $\overline{\bigcap A_a}\subset\bigcap\bar{A}_a$.
+    \indent The same argument as above applies. $\overline{\bigcap A_a}\subset\bigcap\bar{A}_a$.
     \item $\overline{A-B}=\bar{A}-\bar{B}.$ \hspace{5in}\n
-      \indent Consider an $x$ that lies in $\bar{A}$, $\bar{B}$, and $\overline{A-B}$. This $x$ won't exist in $\bar{A}-\bar{B}$. Once again, the example of $A=\mathbb{R}_+$, $B=\mathbb{R}_-$ illustrates this. The difference of the closures is just $\mathbb{R}_+$, while the closure of the difference is $\bar{\mathbb{R}}_+=\mathbb{R}_+ + \{0\}$. Thus at best $\overline{A-B}\supset\bar{A}-\bar{B}$. To prove this direction, consider an $x$ in $\bar{A}-\bar{B}$. All neighborhoods of $x$ intersect $A$, but there exists some neighborhood $U$ that does not intersect $B$. Suppose there is a neighborhood $V$ that does not intersect $A-B$. Then $U\cap V$ must intersect $A$, since it's a neighborhood of $x$. Since it does not intersect $A-B$, the only way it could intersect $A$ is if it intersected $B$, i.e. if it intersected $A\cap B$. But $U$ does not intersect $B$, a contradiction. Thus we conclude that $\overline{A-B}\supset\bar{A}-\bar{B}$.
-    \end{enumerate}
+    \indent Consider an $x$ that lies in $\bar{A}$, $\bar{B}$, and $\overline{A-B}$. This $x$ won't exist in $\bar{A}-\bar{B}$. Once again, the example of $A=\mathbb{R}_+$, $B=\mathbb{R}_-$ illustrates this. The difference of the closures is just $\mathbb{R}_+$, while the closure of the difference is $\bar{\mathbb{R}}_+=\mathbb{R}_+ + \{0\}$. Thus at best $\overline{A-B}\supset\bar{A}-\bar{B}$. To prove this direction, consider an $x$ in $\bar{A}-\bar{B}$. All neighborhoods of $x$ intersect $A$, but there exists some neighborhood $U$ that does not intersect $B$. Suppose there is a neighborhood $V$ that does not intersect $A-B$. Then $U\cap V$ must intersect $A$, since it's a neighborhood of $x$. Since it does not intersect $A-B$, the only way it could intersect $A$ is if it intersected $B$, i.e. if it intersected $A\cap B$. But $U$ does not intersect $B$, a contradiction. Thus we conclude that $\overline{A-B}\supset\bar{A}-\bar{B}$.
+  \end{enumerate}
   \item Let $A\subset X$ and $B\subset Y$. Show that in the space $X\times Y$, $\overline{A\times B}=\bar{A}\times\bar{B}$.\n
-    \indent Consider an $x_0\times y_0\in \bar{A} \times \bar{B}$. Every neighborhood of $x_0$ must intersect $A$, and every neighborhood of $y_0$ must intersect $B$. Identically, for an element $x_1\times y_1\in\overline{A\times B}$, every neighborhood of $x_1$ intersects $A$ and every neighborhood of $y_1$ intersects $B$. 
+  \indent Consider an $x_0\times y_0\in \bar{A} \times \bar{B}$. Every neighborhood of $x_0$ must intersect $A$, and every neighborhood of $y_0$ must intersect $B$. Identically, for an element $x_1\times y_1\in\overline{A\times B}$, every neighborhood of $x_1$ intersects $A$ and every neighborhood of $y_1$ intersects $B$. 
   \item Show that every order topology is Hausdorff.\n
-    \indent Consider the pair of distinct points $a,b$ in a topological space $X$. \WLOG, assume $a<b$. Then either there exists a point $c$ such that $a<c<b$, or $b$ is the immediate successor of $a$. In the first case, the neighborhoods $(-\infty, c)$ and $(c,\infty)$ are disjoint neighborhoods of $a$ and $b$ respectively, so the space is Hausdorff. In the second case, $(-\infty, b)$ and $(a,\infty)$ are the disjoint neighborhoods. 
+  \indent Consider the pair of distinct points $a,b$ in a topological space $X$. \WLOG, assume $a<b$. Then either there exists a point $c$ such that $a<c<b$, or $b$ is the immediate successor of $a$. In the first case, the neighborhoods $(-\infty, c)$ and $(c,\infty)$ are disjoint neighborhoods of $a$ and $b$ respectively, so the space is Hausdorff. In the second case, $(-\infty, b)$ and $(a,\infty)$ are the disjoint neighborhoods. 
   \item Show that the product of two Hausdorff spaces $X$ and $Y$ is Hausdorff.\n
-    \indent For every $x_1,x_2$ in $X$ there exist disjoint neighborhoods $U_1$ and $U_2$. Similarly, for every $y_1,y_2$ in $Y$ there exist disjoint neighborhoods $V_1$ and $V_2$. Thus in the product, for every $x_1\times y_1$ and $x_2\times y_2$ in $X\times Y$, there exist disjoint neighborhoods $U_1\times V_1$ and $U_2\times V_2$.
+  \indent For every $x_1,x_2$ in $X$ there exist disjoint neighborhoods $U_1$ and $U_2$. Similarly, for every $y_1,y_2$ in $Y$ there exist disjoint neighborhoods $V_1$ and $V_2$. Thus in the product, for every $x_1\times y_1$ and $x_2\times y_2$ in $X\times Y$, there exist disjoint neighborhoods $U_1\times V_1$ and $U_2\times V_2$.
   \item Show that the subspace $A$ of a Hausdorff space $X$ is Hausdorff.\n
-    \indent For every $x_1,x_2$ in $X$ there exist disjoint neighborhoods $U,V$. For such elements, the neighborhoods $U\cap A, V\cap A$ will be disjoint in the subspace topology.
+  \indent For every $x_1,x_2$ in $X$ there exist disjoint neighborhoods $U,V$. For such elements, the neighborhoods $U\cap A, V\cap A$ will be disjoint in the subspace topology.
   \item Show that $X$ is Hausdorff if and only if the diagonal $\Delta = \{x\times x\; |\; x\in X\}$ is closed in $X\times X$.\hspace{5in}\n
-    % \indent If $X$ is Hausdorff, then $X\times X$ is Hausdorff. Therefore every element $x\times x$ is closed, by theorem 17.8.
-    % If $\Delta$ is closed, then $C=X\times X - \Delta$ is open. 
-    \indent If $X$ is Hausdorff, for every pair of distinct points $x_1,x_2\in X$, they have disjoint neighborhoods $U,V$. Clearly $x_1 \times x_2$ is in the open set $U\times V$. Furthermore, $U\cap V=\emptyset$ implies that $U\times V \cap \Delta=\emptyset$, since if the latter intersection was not empty, that would imply there was an element $c\times c$ in $U\times V$, i.e. $c\in U$ and $c\in V$, which contradicts the previous assertion. Since every element of $X\times X - \Delta$ lies in an open set, $X\times X - \Delta$ is open, so $\Delta$ is closed.\n
-    \indent In the other direction proceeds similarly: if the diagonal is closed, then it's complement is open, i.e. every pair of distinct points $x_1,x_2$ lies in an open set $U\times V$. $x_1\in U$ and $x_2\in V$. If $U\cap V\neq \emptyset$, then there exists an element $c$ such that $c\in U$ and $c\in V$, so $c\times c\in U\times V$, but $c\times c\in \Delta$, a contradiction as $U$ and $V$ are subsets of the complement of $\Delta$. Thus $U,V$ are disjoint, so $X\times X$ is Hausdorff.
+  \indent If $X$ is Hausdorff, for every pair of distinct points $x_1,x_2\in X$, they have disjoint neighborhoods $U,V$. Clearly $x_1 \times x_2$ is in the open set $U\times V$. Furthermore, $U\cap V=\emptyset$ implies that $U\times V \cap \Delta=\emptyset$, since if the latter intersection was not empty, that would imply there was an element $c\times c$ in $U\times V$, i.e. $c\in U$ and $c\in V$, which contradicts the previous assertion. Since every element of $X\times X - \Delta$ lies in an open set, $X\times X - \Delta$ is open, so $\Delta$ is closed.\n
+  \indent In the other direction proceeds similarly: if the diagonal is closed, then it's complement is open, i.e. every pair of distinct points $x_1,x_2$ lies in an open set $U\times V$. $x_1\in U$ and $x_2\in V$. If $U\cap V\neq \emptyset$, then there exists an element $c$ such that $c\in U$ and $c\in V$, so $c\times c\in U\times V$, but $c\times c\in \Delta$, a contradiction as $U$ and $V$ are subsets of the complement of $\Delta$. Thus $U,V$ are disjoint, so $X\times X$ is Hausdorff.
+  \item In the finite complement topology on $\mathbb{R}$ to what point or points does the sequence $x_n=1/n$ converge?\hspace{5in}\n
+  \indent The finite complement topology on $\mathbb{R}$ is defined such that all finite sets are closed. Consider a finite set $A\in\mathbb{R}$. For any $N$, the set of $x_{n>N}$ is infinite, so there must be a smallest $x_n$ that $A$ contains (if it contains any of the $x_n$s), and $A$ will not contain any of the $x_n$ below that point. Therefore the complement of $A$ will be an open set that contains all $x_{n>N}$. This describes every open set, so every this sequence converges to every real.
+  \item Show that the $T_1$ axiom is equivalent to the condition that for each pair of points of $X$, each has a neighborhood not containing the other. ($T_1$ axiom: all finite point sets are closed). \n
+  \indent Suppose that $X$ is a space satisfying the $T_1$ axiom. Then, for any pair of points $a,b$, the sets $\{a\}$ and $\{b\}$ are closed. The complement of $\{a\}$ is a neighborhood of $a$ that does not contain $b$, and the complement of $\{b\}$ is a neighborhood of $b$ that does not contain $a$.\n
+  \indent In the other direction, suppose that each pair of points $a,b$ has a neighborhood, $U,V$ respectively, that does not contain the other point. The corresponding closed sets are $\mathbb{R}-U\subset \mathbb{R}-\{a\}$, with the same format for $V$. Now, for every $c$ in that closed set except $c=b$, take the closed set $C$ that is the complement of the open set that does not contain $b$. The intersection of each such $C$ with $U$ will yield a closed set $\{b\}$. Thus every one point set is closed, and since finite unions are allowed, every finite set is closed.
+  \item Consider the following five topologies on $\mathbb{R}$: $\T_1$ - the standard topology, $\T_2$ - the topology of $\mathbb{R}_K$, $\T_3$ - the finite complement topology, $\T_4$ - the upper limit topology, and $\T_5$ - the topology having all sets $(-\infty,a)$ as a basis. For each one, 
+  \begin{enumerate}
+    \item Determine the closure of the set $K=\{1/n\;|\;n\in\mathbb{Z}_+\}$
+    \item Is it Hausdorff? Does it satisfy the $T_1$ axiom?
+  \end{enumerate}
+  \begin{enumerate}[label=\roman*)]
+    \item $\T_1$ - standard topology
+    \begin{enumerate}[label=(\alph*)]
+      \item $\bar{K}=K\cup \{0\}$. Every neighborhood of 0 intersects $K$ at a point other than 0, and the next part shows that there is only one limit point of the sequence $x_n=1/n$.
+      \item The standard topology is Hausdorff. For any $a$ and $b$, $a<b$ \Wlog . Then, the intervals $(a-1, (a+b)/2)$ and $((a+b)/2, b+1)$ are disjoint open neighborhoods of $a,b$ respectively.
+    \end{enumerate}
+    \item $\T_2$ - $\mathbb{R}_K$
+    \begin{enumerate}[label=(\alph*)]
+      \item $K$ is its own closure. 0 is not a limit point, since the set $(-1, 1) - K$ is a neighborhood of 0 that does not intersect $K$.
+      \item This is finer than the standard topology, $\T_1$ is Hausdorff, so this is too.
+    \end{enumerate}
+    \item $\T_3$ - the finite complement topology
+    \begin{enumerate}[label=(\alph*)]
+      \item all reals, by exercise 14.
+      \item $T_1$, in text. Also, by previous part obviously not Hausdorff, and $T_1$ by definition.
+    \end{enumerate}
+    \item $\T_4$ - the upper limit topology
+    \begin{enumerate}[label=(\alph*)]
+      \item The set is its own closure. 0 is not a limit point because the interval $(-1,0]$ is one of its neighborhoods.
+      \item Finer than $\T_1$, which is Hausdorff, so this is Hausdorff.
+    \end{enumerate}
+    \item $\T_5$ - the topology having all sets $(-\infty, a)$ as a basis
+    \begin{enumerate}[label=(\alph*)]
+      \item $\bar{K}=[0,\infty)$, since for all points $x$ in that interval, all of their open neighborhoods must include an element larger than $x$, and all elements smaller than $x$. 
+      \item Given points $a,b$ suppose, \Wlog , that $a<b$. All neighborhoods of $b$ include everything less than $b$, including $a$. This space does not follow the $\T_1$ axiom, because the set $\{a\}$ is not closed for any $a$. 
+    \end{enumerate}
+  \end{enumerate}
+  \item Consider the lower limit topology on $\mathbb{R}$ and the topology generated by the basis $\mathcal{C}=\{[a,b)\;|\; a<b,\; a,b \text{ are rational}\}$. Determine the closures of the intervals $A=(0,\sqrt{2})$ and $B=(\sqrt{2},3)$ in these topologies.
+  \begin{enumerate}
+    \item Lower limit topology
+    \begin{enumerate}
+      \item $\bar{A} = A\cup \{0\}$. The neighborhood $\left[\sqrt{2},2\right)$ of $\sqrt{2}$ does not lie in $A$.
+      \item $\bar{B} = B\cup \{\sqrt{2}\}$.
+    \end{enumerate}
+    \item The topology generated by $\mathcal{C}$.
+    \begin{enumerate}
+      \item $\bar{A} = A\cup \{0,\sqrt{2}\}$, since $\left[\sqrt{2}, b\right)$ is not an open set.
+      \item $\bar{B} = B\cup \{\sqrt{2}\}$.
+    \end{enumerate}
+  \end{enumerate}
+  \item Determine the closures of the following subsets of the ordered square $I^2_o = [0,1]\times [0,1]$
+  \begin{enumerate}
+    \item $A=\{(1/n)\times 0 \;|\; n\in\mathbb{Z}_+\}$\hspace{5in}\n
+    \indent $A\cup \{0\times 0\}$
+    \item $B=\{(1-1/n)\times \sfrac{1}{2}\;|\;n\in\mathbb{Z}_+\}$\hspace{5in}\n
+    \indent $B\cup \{1\times \sfrac{1}{2}\}$
+    \item $C=\{x\times 0 \;|\; 0<x<1\}$\hspace{5in}\n
+    \indent $[0,1]\times 0$
+    \item $D=\{x\times \sfrac{1}{2} \;|\; 0<x<1\}$\hspace{5in}\n
+    \indent $[0,1]\times \sfrac{1}{2}$
+    \item $E=\{\sfrac{1}{2} \times y \;|\; 0<y<1\}$\hspace{5in}\n
+    \indent $[\sfrac{1}{2}\times 0, \sfrac{1}{2}\times 1]$
+  \end{enumerate}
+  \item If $A\subset X$ we define the boundary of $A$ by the equation $\text{Bd } A = \bar{A} \cap \overline{(X-A)}$
+  \begin{enumerate}
+    \item Show that Int $A$ and Bd $A$ are disjoint, and $\bar{A}=\text{Int } A\ \cup\ \text{Bd } A$.\hspace{5in}\n
+    \indent Suppose there exists an element $x$ that is in both Int $A$ and Bd $A$. Then $x$ lies in an open set $U$ of $X$ that is a subset of $A$.
+    $x$ must also lie within $\overline{(X-A)}$. $x$ is an element of $A$, so it cannot be in $X-A$, so it must be a limit point of $X-A$, i.e. every neighborhood of $x$ intersects $X-A$ at a point other than itself. However, $U$ is a subset of $A$, and thus is a neighborhood of $x$ that does not intersect $X-A$, a contradition. Thus the two are disjoint.\n
+    \indent Bd $A = \bar{A} \cap \overline{(X-A)}$, therefore $\bar{A} = (X - \overline{(X-A)})\cup \text{Bd } A$. $X - \overline{(X-A)} = (X - (X - A)) \cap (X - (X-A)') = A \cap (X-(X-A)') = (A\cap X) - (A\cap (X-A)') = A - (A\cap(X-A)') = A - (X-A)'$\hspace{3in}\n
+    This is equivalent to Int $A$. Obviously no points outside $A$ are in Int $A$. Now, suppose that there exists an $x$ in Int $A$ that is also a limit point of $X-A$, i.e. every neighborhood of $x$ intersects $X-A$ at a point other than $x$, and $x$ lies in an open set of $A$. The open set of $A$ that $x$ must lie in to be in its interior does not intersect $X-A$. Thus, Int $A = A - (X-A)'$ and $\bar{A} = \text{Int } A \cup \text{Bd } A$
+    \item Show that Bd $A = \emptyset \leftrightarrow A$ is both open and closed.\hspace{5in}\n
+    \indent Bd $A = \bar{A} \cap \overline{(X-A)} = (A \cup A') \cap ((X-A)\cup (X-A)') = (A\cap (X-A)') \cup (A'\cap (X-A)) \cup (A' \cap (X-A)')$ For any $U$, $U$ and $U'$ are disjoint, so the previous expression is equal to $(X-A)' \cup A' \cup (A'\cap (X-A)') = (X-A)' \cup A' = \text{Bd } A$.\n
+    If $(X-A)'\cup A'=\emptyset$, then $A'=\emptyset$, implying that the set is closed. Furthermore, this implies that $\bar{A}=A$. In the previous part, we found $\bar{A}=\text{Int } A \cup \text{Bd } A$, so Int $A=A$, implying that $A$ is open. Thus $A$ is open and closed.\n
+    \indent In the other direction, suppose $A$ is both open and closed. Then Int $A = A = \bar{A}$. Since $\bar{A} = $ Int $A\ \cup\ $Bd $A$, and since Int $A$ and Bd $A$ are disjoint, Bd $A$ must be empty.
+    \item Show that $U$ is open $\leftrightarrow$ Bd $U = \bar{U} - U$.\hspace{5in}\n
+    \indent $\bar{U} - U = U'$ and Bd $U = U' \cup (X-U)'$. So the hypothesis is equivalent to $U$ is open $\leftrightarrow (X-U)'\subset U'$. These two sets are disjoint (suppose there exists an $x$ in both. $x$ is not in $X-U$ and $x$ is not in $U$, a contradiction.) So the hypothesis is $U$ is open $\leftrightarrow (X-U)'=\emptyset$.\hspace{5in}\n
+    If $U$ is open, then $(X-U)$ is closed, so it is its own closure, so $(X-A)'=\emptyset$.
+    In the other direction, if $(X-U)'=\emptyset$, then $(X-U)$ is it's own closure, so it is closed, so $U$ is open.
+    \item If $U$ is open, is it true that $U = \text{Int } \bar{U}$?\hspace{5in}\n
+    \indent No. Consider $\mathbb{R} - \{0\}$. It's an open set in the standard topology, but the interior of the closure is the interior of $\mathbb{R}$ is just $\mathbb{R}\neq \mathbb{R}-\{0\}$.
+  \end{enumerate}
+  \item Find the boundary and the interior of each of the following subsets of $\mathbb{R}^2$
+  \begin{enumerate}
+    \item $A=\{x\times 0\}$\hspace{5in}\n
+    \indent Bd $A$ = $A$. Int $A = \emptyset$
+    \item $B=\{x\times y\;|\; x>0 \wedge y\neq 0\}$\hspace{5in}\n
+    \indent Bd $B = \{x\times 0 \cup 0\times y \cup 0\times 0\}$. Int $B = B$.
+    \item $C=A\cup B$\hspace{5in}\n
+    \indent Bd $C = \{x\times 0\;|\; x<0 \cup 0\times y \}$. Int $C = \{x\times y\;|\; x>0\}$.
+    \item $D=\{x\times y\;|\;x\in\mathbb{Q}\}$\hspace{5in}\n
+    \indent Bd $D = \{x\times y\}$. Int $D = \emptyset$
+    \item $E=\{x\times y\;|\;0<x^2-y^2\leq 1\}$\hspace{5in}\n
+    \indent Bd $E = \{x\times y\;|\; x^2=y^2 \vee x^2=1+y^2$. Int $E=\{x\times y\;|\; 0<x^2-y^2<1\}$.
+    \item $F=\{x\times y\;|\;x\neq 0 \wedge y\leq \frac{1}{x}\}$\hspace{5in}\n
+    \indent Bd $F=\{x\times y\;|\; x=0 \vee y=\frac{1}{x}\}$. Int $F=\{x\times y\;|\; x\neq 0 \wedge y<\frac{1}{x}\}$.
+  \end{enumerate}
+  \item (Kuratowski) Consider the collection of all subsets $A$ of the topological space $X$. The operations of closure and complementation are functions from this collection to itself.
+  \begin{enumerate}
+    \item Show that starting from a given set $A$, one can form no more than 14 distinct sets by applying these operations successively.\n
+    \indent Taking either operation twice on the same set obviously yields the original set.\n
+    \indent The sets $A$, $X-A$, $\bar{A}$, $\overline{X-A}$ and $X-\bar{A}$ can obviously be distinct. For example the with the set $(0,1]$, these five resultant sets are distinct. Furthermore, applying these operations to one of the first three sets does not give a distinct sets, nor does the closure of the fourth, nor does the complement of the fifth.
+    So, currently we need to examine $X-\overline{X-A}$ and $\overline{X-\bar{A}}$. The former, with the same example, yields a new set. The latter is identical to $\overline{X-A}$ in this case. \n
+    So far, the sets we have, in order, with the running example are $(0,1]; (-\infty,0]\cup (1,\infty); [0,1]; (-\infty,0]\cup [1,\infty); (-\infty,0)\cup(1,\infty); (0,1)$.
+    We now try $\overline{X-\overline{X-A}}$. This is identical to $\bar{A}$ in this case.
+    %(2,3)\cup (3,4) is interesting, since the complement has a finite closed set {3}. Maybe that'll come to something. 
+    \item Find a subset $A$ of $\mathbb{R}$ (in its usual topology) for which the maximum of 14 is reached.
+  \end{enumerate}
 \end{enumerate}
 \end{document}
