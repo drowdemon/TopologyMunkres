@@ -1,0 +1,58 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[pdftex]{graphicx}
+\usepackage{alltt}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage{verbatim}
+\usepackage{ragged2e}
+\usepackage{enumitem}
+\usepackage{xfrac}
+\setlist{parsep=0pt,listparindent=\parindent}
+\setlength{\RaggedRightParindent}{\parindent}
+\newcommand{\degree}{\ensuremath{^\circ}}
+\newcommand{\n}{\break}
+\let\oldemptyset\emptyset
+\let\emptyset\varnothing
+\newcommand{\Wlog}{without loss of generality}
+\newcommand{\WLOG}{Without loss of generality}
+\usepackage{accents}
+\let\thinbar\bar
+\newcommand\thickbar[1]{\accentset{\rule{.4em}{.8pt}}{#1}}
+\let\bar\thickbar
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%THIS DOCUMENT ONLY%
+\newcommand{\T}{\ensuremath{\mathcal{T}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\RaggedRight
+\begin{enumerate}
+
+
+  
+  \item Show that the subspace $(a,b)$ of $\mathbb{R}$ is homeomorphic with $(0,1)$ and the subspace $[a,b]$ of $\mathbb{R}$ is homeomorphic with $[0,1]$.\n
+  \indent Consider the function from $(a,b)$ to $(0,1)$: $f(x)=\frac{x-a}{b-a}$. The inverse is $f^{-1}(x)=x*(b-a)+a$. That this is the inverse and that $f(f^{-1}(x)) = x$ and $f^{-1}(f(x))=x$ is easily checked, so $f$ is bijective. For any open set $U$ of $(a,b)$, $f(U)$ will be open, the converse also holds, so it is homeomorphic. The same function will work for the second example.
+  \item Find a function $f: \mathbb{R}\rightarrow \mathbb{R}$ that is continuous at precisely one point.\hspace{5in}\n
+  \indent Consider the function $f(x) = \begin{cases} x & \text{if } x\in\mathbb{Q} \\ 0 & \text{if } x\not\in\mathbb{Q}\end{cases}\quad$ Then, $f$ is continuous only at the point 0. \hspace{3in}\n
+  Consider a neighborhood $V$ of $f(0)$ of the form $(a,b)$, where $a<0$ and $b>0$. $f^{-1}(V)$ is all of the rationals in the set $(a,b)$ together with all of the irrationals, which clearly contains the set $(a,b)$. So $f$ is continuous at 0. Now consider $f$ at some other point, $x_0$, and a neighborhood $V$ of $f(x_0)$. Suppose that $x_0$ is rational, and that $V$ does not contain 0 - this is possible since any interval $(a,b)$ containing $x_0\neq 0$ can be made smaller until it does not contain 0. Then, $f^{-1}(V)$ does not contain any irrationals, but $V$ does, so $f$ is not continuous at $x_0$. If $x_0$ is irrational, then $f(x_0)=0$, so $V$ is a neighborhood of $0$. Then, consider a $V$ that contains only elements closer to 0 than $x$. Then $f^{-1}(V)$ will not contain any rationals close to $x_0$, so it will not contain any neighborhood of $x_0$, so $f$ is not continuous at $x_0$.
+  \item
+  \begin{enumerate}
+    \item Suppose that $f: \mathbb{R} \rightarrow \mathbb{R}$ is ``continuous from the right,'' that is, $$\lim_{x\rightarrow a^+} f(x)=f(a),$$ for each $a\in\mathbb{R}$. Show that $f$ is continuous when considered as a function from $\mathbb{R}_\ell$ to $\mathbb{R}$.\hspace{5in}\n
+    \item Can you conjecture what functions $f:\mathbb{R}\rightarrow \mathbb{R}$ are continuous when considered as maps from $\mathbb{R}$ to $\mathbb{R}_l$? As maps from $\mathbb{R}_\ell$ to $\mathbb{R}_\ell?$ We shall return to this question in chapter 3.
+  \end{enumerate}
+  \item Let $Y$ be an ordered set in the order topology. Let $f,g: X\rightarrow Y$ be continuous.
+  \begin{enumerate}
+    \item Show that the set $B=\{x\;|\; f(x)\leq g(x)\}$ is closed in $X$.\hspace{5in}\n
+    \indent Define $A=X-B$ For any $x\in A$, for each of its neighborhoods $V_f=f(x)$, $U_f=f^{-1}(V_f)$ is open, and for each of its neighborhoods $V_g=g(x)$, $U_g=g^{-1}(V_g)$ is open. It is sufficient to consider only neighborhoods that are basis elements. Then, since $x\in A$, there exist neighborhoods $V_f$ and $V_g$ such that the smallest element in $V_f$ is greater than the largest element in $V_g$. $U_f$ is an open set containing $x$, and furthermore, since the smallest element in $V_f$ is greater than the largest element in $V_g$, every element in $U_f$ is contained in $A$. The union of open sets is open, so the union of such an open set for every $x$ in $A$ is an open set, this union will yield exactly $A$.
+    \item Let $h: X\rightarrow Y$ be the function $h(x)=\min(f(x),g(x))$. Show that $h$ is continuous.\hspace{5in}\n
+    \indent Consider $A=\{x\;|\; f(x)\leq g(x)\}$ and $B=\{x\;|\; g(x)\leq f(x)\}$. $A$ and $B$ are closed by the previous part. Clearly, $x\in A\cap B\rightarrow f(x)=g(x)$, by antisymmetry of an order relation. By the pasting lemma, the minimum of these two functions is closed.
+  \end{enumerate}
+  \item Let $\{A_\alpha \}$ be a collection of subsets of $X$; let $X=\bigcup_\alpha A_\alpha$. Let $f: X\rightarrow Y$; suppose that $f|A_\alpha$ is continuous for each $\alpha$.
+  \begin{enumerate}
+    \item Show that if the collection $\{A_\alpha\}$ is finite and each set $A_\alpha$ is closed, then $f$ is continuous.\hspace{5in}\n
+    \item Find an example where the collection $\{A_\alpha\}$ is countable and each $A_\alpha$ is closed, but $f$ is not continuous. \hspace{5in}\n
+    \item An indexed family of sets $\{A_\alpha\}$ is said to be \emph{locally finite} if each point $x$ of $X$ has a neighborhood that intersects $A_\alpha$ for only finitely many values of $\alpha$. Show that if the family $\{A_\alpha\}$ is locally finite and each $A_\alpha$ is closed, then $f$ is continuous.\hspace{5in}\n
+  \end{enumerate}
+\end{enumerate}
+\end{document}
