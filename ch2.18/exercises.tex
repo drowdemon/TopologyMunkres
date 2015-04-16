@@ -1,0 +1,45 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[pdftex]{graphicx}
+\usepackage{alltt}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage{verbatim}
+\usepackage{ragged2e}
+\usepackage{enumitem}
+\usepackage{xfrac}
+\setlist{parsep=0pt,listparindent=\parindent}
+\setlength{\RaggedRightParindent}{\parindent}
+\newcommand{\degree}{\ensuremath{^\circ}}
+\newcommand{\n}{\break}
+\let\oldemptyset\emptyset
+\let\emptyset\varnothing
+\newcommand{\Wlog}{without loss of generality}
+\newcommand{\WLOG}{Without loss of generality}
+\usepackage{accents}
+\let\thinbar\bar
+\newcommand\thickbar[1]{\accentset{\rule{.4em}{.8pt}}{#1}}
+\let\bar\thickbar
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%THIS DOCUMENT ONLY%
+\newcommand{\T}{\ensuremath{\mathcal{T}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\RaggedRight
+\begin{enumerate}
+  \setcounter{enumi}{1}
+\item Suppose that $f: X\rightarrow Y$ is continuous. If $x$ is a limit point of the subset $A$ of $X$, is it necessarily true that $f(x)$ is a limit point of $f(A)$.\n
+\indent Consider the topology on the set $X=\{a,b,c\}$: $\T_1 = \{\{a,b\}, \{b,c\},\{a,b,c\},\emptyset\}$, and the topology on the set $Y=\{d,e\}$: $\T_2 = \{\emptyset, \{d,e\}\}$. The mapping $F: X\rightarrow Y$ is defined such that $f(a)=d,\ f(b)=e,\ f(c)=e$. The limit points of $\{b\}$ are $a$ and $c$. However, the limit point of $\{f(b)\}=\{e\}$ is $d$. $f(c)=e$ cannot be a limit point, since the open set containing it, $\{e\}$, only intersects $\{f(b)\}$ at itself, not any other point. That the mapping is continuous is easy to check.\n
+\indent In general, let $V$ be a neighborhood of $f(x)$. Then $f^{-1}(V)$ is an open set of $X$ containing $x$, so it must intersect $A$ at some point $y$. $f(y)\in V$ and $f(y)\in f(A)$, therefore $V$ intersects $f(A)$ at $f(y)$. If $f(y)\in f(x)$ for all such points $y$ then $f(x)$ is not a limit point, but if this is false for all open sets $V$, $f(x)$ will be a limit point of $A$.
+\item Let $X$ and $X'$ denote a single set in the two toplogies $\T$ and $\T'$, respectively. Let $i: X'\rightarrow X$ be the identity function.
+  \begin{enumerate}
+  \item Show that $i$ is continuous $\leftrightarrow \T'$ is finer than $\T$.\hspace{5in}\n
+    \indent Clearly, $i$ is it's own inverse. Then, suppose $i$ is continuous. Then for an open set $V$ of $X$, $i(V)=V$ is an open set of $X'$. Hence, every open set $V$ of $X$ is an open set of $X'$, i.e. $\T'$ is finer than $\T$. \n
+    \indent In the other direction, suppose that $\T'$ is finer than $\T$. Then for an open set $V$ of $X$, $i(V)=V$ is in $X'$, so $i$ is continuous.
+  \item Show that $i$ is a homeomorphism $\leftrightarrow \T'=\T$.\n
+    \indent Suppose $i$ is a homeomorphism. Then $i$ is bijective. This implies that $X=X'$. This also implies that every open sey $U$ of $X$ is open in $X'$, so the topologies must be equivalent. The argument is similar in the other direction.
+  \end{enumerate}
+\item Given $x_0\in X$ and $y_0\in Y$, show that the maps $f: X\rightarrow X\times Y$ and $g: Y\rightarrow X\times Y$ defined by $f(x)=x\times y_0$ and $g(y)=x_0\times y$ are imbeddings. Let $Z=X\times y_0$. Then 
+\end{enumerate}
+\end{document}
