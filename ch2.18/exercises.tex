@@ -42,5 +42,18 @@
   \end{enumerate}
 \item Given $x_0\in X$ and $y_0\in Y$, show that the maps $f: X\rightarrow X\times Y$ and $g: Y\rightarrow X\times Y$ defined by $f(x)=x\times y_0$ and $g(y)=x_0\times y$ are imbeddings. \hspace{5in}\n
 \indent Let $Z=X\times y_0$. Then $f(x)$ is just a line such that the $x$-coordinate is $x$ and the $y$ coordinate is $y_0$. This is equivalent to the identity function cross $y_0$, so it is homeorphic when considered on the range $X \times c$, and an imbedding in $X\times Y$. The same goes for $g$.
+
+
+
+
+\item Let $\{A_\alpha\}$ be a collection of subsets of $X$; let $X=\bigcup_\alpha A_\alpha$. Let $f: X\rightarrow Y$; suppose that $f|A_\alpha$ is continuous for each $\alpha$. 
+\begin{enumerate}
+\item Show that if the collection $\{A_\alpha\}$ is finite and each set $A_\alpha$ is closed, then $f$ is continuous.\hspace{5in}\n
+\indent The local formulation of continuity shows that this would be true if each $A$ were open. Furthermore, by part 3 of theorem 18.1, just like for open sets, if $f$ is continuous, then for every closed set $B$ of $Y$, the set $f^{-1}(B)$ is closed in $X$. Consider such a closed set $B$ of $Y$. $f^{-1}(V)\cap A_\alpha = (f|A_\alpha)^{-1}(B)$: both expressions are exactly those points $x$ in $A_\alpha$ such that $f(a)\in B$. Since $f|A_\alpha$ is continuous, $(f|A_\alpha)^{-1}(B)$ is closed. $f^{-1}(B) = \bigcup_\alpha(f|A_\alpha)^{-1}(B)$. The finite union of closed sets is closed, so $f^{-1}(B)$ is closed, so $f$ is continuous.
+\item Find an example where the collection $\{A_\alpha\}$ is countable and each $A_\alpha$ is closed, but $f$ is not continuous.\hspace{5in}\n
+\indent Consider 
+$$A_0={0} \text{ and } A_{n>0}=\{\frac{1}{n}\text{, and } f(x)=\begin{cases} x & \quad x\neq 0 \\ 10 & \quad x=0\end{cases}$$
+\item An indexed family of sets $\{A_\alpha\}$ is said to be $\emph{locally finite}$ is each point $x$ of $X$ has a neighborhood that intersects $A_\alpha$ for only finitely many values of $\alpha$. Show that if the family $\{A_\alpha\}$ is locally finite and each $A_\alpha$ is closed, then $f$ is continuous.
+\end{enumerate}
 \end{enumerate}
 \end{document}
