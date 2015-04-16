@@ -28,9 +28,22 @@
 \begin{document}
 \RaggedRight
 \begin{enumerate}
+  \setcounter{enumi}{1}
+  \item Suppose that $f: X\rightarrow Y$ is continuous. If $x$ is a limit point of the subset $A$ of $X$, is it necessarily true that $f(x)$ is a limit point of $f(A)$.\n
+  \indent Consider the topology on the set $X=\{a,b,c\}$: $\T_1 = \{\{a,b\}, \{b,c\},\{a,b,c\},\emptyset\}$, and the topology on the set $Y=\{d,e\}$: $\T_2 = \{\emptyset, \{d,e\}\}$. The mapping $F: X\rightarrow Y$ is defined such that $f(a)=d,\ f(b)=e,\ f(c)=e$. The limit points of $\{b\}$ are $a$ and $c$. However, the limit point of $\{f(b)\}=\{e\}$ is $d$. $f(c)=e$ cannot be a limit point, since the open set containing it, $\{e\}$, only intersects $\{f(b)\}$ at itself, not any other point. That the mapping is continuous is easy to check.\n
+  \indent In general, let $V$ be a neighborhood of $f(x)$. Then $f^{-1}(V)$ is an open set of $X$ containing $x$, so it must intersect $A$ at some point $y$. $f(y)\in V$ and $f(y)\in f(A)$, therefore $V$ intersects $f(A)$ at $f(y)$. If $f(y)\in f(x)$ for all such points $y$ then $f(x)$ is not a limit point, but if this is false for all open sets $V$, $f(x)$ will be a limit point of $A$.
+  \item Let $X$ and $X'$ denote a single set in the two toplogies $\T$ and $\T'$, respectively. Let $i: X'\rightarrow X$ be the identity function.
+  \begin{enumerate}
+    \item Show that $i$ is continuous $\leftrightarrow \T'$ is finer than $\T$.\hspace{5in}\n
+    \indent Clearly, $i$ is it's own inverse. Then, suppose $i$ is continuous. Then for an open set $V$ of $X$, $i(V)=V$ is an open set of $X'$. Hence, every open set $V$ of $X$ is an open set of $X'$, i.e. $\T'$ is finer than $\T$. \n
+    \indent In the other direction, suppose that $\T'$ is finer than $\T$. Then for an open set $V$ of $X$, $i(V)=V$ is in $X'$, so $i$ is continuous.
+    \item Show that $i$ is a homeomorphism $\leftrightarrow \T'=\T$.\hspace{5in}\n
+    \indent Suppose $i$ is a homeomorphism. Then $i$ is bijective. This implies that $X=X'$. This also implies that every open sey $U$ of $X$ is open in $X'$, so the topologies must be equivalent. The argument is similar in the other direction.
+  \end{enumerate}
+  \item Given $x_0\in X$ and $y_0\in Y$, show that the maps $f: X\rightarrow X\times Y$ and $g: Y\rightarrow X\times Y$ defined by $f(x)=x\times y_0$ and $g(y)=x_0\times y$ are imbeddings. \hspace{5in}\n
+  \indent Let $Z=X\times y_0$. Then $f(x)$ is just a line such that the $x$-coordinate is $x$ and the $y$ coordinate is $y_0$. This is equivalent to the identity function cross $y_0$, so it is homeorphic when considered on the range $X \times c$, and an imbedding in $X\times Y$. The same goes for $g$.
 
 
-  
   \item Show that the subspace $(a,b)$ of $\mathbb{R}$ is homeomorphic with $(0,1)$ and the subspace $[a,b]$ of $\mathbb{R}$ is homeomorphic with $[0,1]$.\n
   \indent Consider the function from $(a,b)$ to $(0,1)$: $f(x)=\frac{x-a}{b-a}$. The inverse is $f^{-1}(x)=x*(b-a)+a$. That this is the inverse and that $f(f^{-1}(x)) = x$ and $f^{-1}(f(x))=x$ is easily checked, so $f$ is bijective. For any open set $U$ of $(a,b)$, $f(U)$ will be open, the converse also holds, so it is homeomorphic. The same function will work for the second example.
   \item Find a function $f: \mathbb{R}\rightarrow \mathbb{R}$ that is continuous at precisely one point.\hspace{5in}\n
@@ -48,11 +61,14 @@
     \item Let $h: X\rightarrow Y$ be the function $h(x)=\min(f(x),g(x))$. Show that $h$ is continuous.\hspace{5in}\n
     \indent Consider $A=\{x\;|\; f(x)\leq g(x)\}$ and $B=\{x\;|\; g(x)\leq f(x)\}$. $A$ and $B$ are closed by the previous part. Clearly, $x\in A\cap B\rightarrow f(x)=g(x)$, by antisymmetry of an order relation. By the pasting lemma, the minimum of these two functions is closed.
   \end{enumerate}
-  \item Let $\{A_\alpha \}$ be a collection of subsets of $X$; let $X=\bigcup_\alpha A_\alpha$. Let $f: X\rightarrow Y$; suppose that $f|A_\alpha$ is continuous for each $\alpha$.
+  \item Let $\{A_\alpha\}$ be a collection of subsets of $X$; let $X=\bigcup_\alpha A_\alpha$. Let $f: X\rightarrow Y$; suppose that $f|A_\alpha$ is continuous for each $\alpha$. 
   \begin{enumerate}
     \item Show that if the collection $\{A_\alpha\}$ is finite and each set $A_\alpha$ is closed, then $f$ is continuous.\hspace{5in}\n
-    \item Find an example where the collection $\{A_\alpha\}$ is countable and each $A_\alpha$ is closed, but $f$ is not continuous. \hspace{5in}\n
-    \item An indexed family of sets $\{A_\alpha\}$ is said to be \emph{locally finite} if each point $x$ of $X$ has a neighborhood that intersects $A_\alpha$ for only finitely many values of $\alpha$. Show that if the family $\{A_\alpha\}$ is locally finite and each $A_\alpha$ is closed, then $f$ is continuous.\hspace{5in}\n
+    \indent The local formulation of continuity shows that this would be true if each $A$ were open. Furthermore, by part 3 of theorem 18.1, just like for open sets, if $f$ is continuous, then for every closed set $B$ of $Y$, the set $f^{-1}(B)$ is closed in $X$. Consider such a closed set $B$ of $Y$. $f^{-1}(V)\cap A_\alpha = (f|A_\alpha)^{-1}(B)$: both expressions are exactly those points $x$ in $A_\alpha$ such that $f(a)\in B$. Since $f|A_\alpha$ is continuous, $(f|A_\alpha)^{-1}(B)$ is closed. $f^{-1}(B) = \bigcup_\alpha(f|A_\alpha)^{-1}(B)$. The finite union of closed sets is closed, so $f^{-1}(B)$ is closed, so $f$ is continuous.
+    \item Find an example where the collection $\{A_\alpha\}$ is countable and each $A_\alpha$ is closed, but $f$ is not continuous.\hspace{5in}\n
+    \indent Consider 
+    $$A_0={0} \text{ and } A_{n>0}=\{\frac{1}{n}\text{, and } f(x)=\begin{cases} x & \quad x\neq 0 \\ 10 & \quad x=0\end{cases}$$
+    \item An indexed family of sets $\{A_\alpha\}$ is said to be $\emph{locally finite}$ is each point $x$ of $X$ has a neighborhood that intersects $A_\alpha$ for only finitely many values of $\alpha$. Show that if the family $\{A_\alpha\}$ is locally finite and each $A_\alpha$ is closed, then $f$ is continuous.
   \end{enumerate}
 \end{enumerate}
 \end{document}
