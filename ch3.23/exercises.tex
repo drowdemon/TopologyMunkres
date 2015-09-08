@@ -1,0 +1,33 @@
+\documentclass[12pt,letterpaper]{article}
+\input{../preamble.sty}
+
+\begin{document}
+\RaggedRight
+\begin{enumerate}
+  \item Let $\T$ and $\T'$ be two topologies on $X$. If $\T'\supset\T$, what does connectedness of $X$ in one topology imply about connectedness in the other?\\
+  If $\T$ is connected, then the courser $\T'$ is clearly connected. The reverse relationship does not imply anything about connectivity, because a finer set can always be made by adjoining a separation of $X$ to $\T$.
+  \item Let $\{A_n\}$ be a sequence of connected subspaces of $X$, such that $A_n\cap A_n+1 \neq \emptyset$ for all $n$. Show that $\bigcup A_n$ is connected. \\
+  $A_1$ and $A_2$ are connected by \hyperref[thm:unionConnected]{Theorem 23.3}, since their intersection is not null. Likewise, the union of the sets $(A_!\cup A_2)$ and $A_3$ is connected, since $A_2\cap A_3$ is connected. Proceeding by induction, $\bigcup A_n$ is connected.
+  \item Let $\{A_\alpha\}$ be a collection of connected subspaces of $X$; let $A$ be a connected subspace of $X$. Show that if $A\cap A_\alpha\neq\emptyset$ for all $\alpha$, then $A\cup(\bigcup(A_\alpha))$ is connected.\\
+  For each $\alpha$, $A$ intersects $A_\alpha$, so $A\cup A_\alpha$ is connected. Similarly, for $\beta\neq\alpha$, $A\cup A_\alpha \cup A_\beta$ is connected, and so by induction we get that $A\cup(\bigcup A_\alpha)$ is connected.
+  \item Show that if $X$ is an infinite set, it is connected in the \hyperref[dfn:finiteComplementTopology]{finite complement topology}. \\
+  Suppose it is not connected, there exists a subset $U$ of $X$ which is both open and closed. However, for $X-U$ to be finite, $U$ must be an infinite set. Therefore, $X-U$ is not open, since $X-U$ is finite, so $U$ is not closed, a contradiction. $X$ is connected.
+  \item A space is totally disconnected if its only connected subspaces are one-point sets. Show that if $X$ has the discrete topology, then $X$ is totally disconnected. Does the converse hold? \\
+  Let $A$ be a connected subspace of $X$, suppose $A$ contains more than one distinct point, let $x$ be an element $A$. $\{x\}$ and $X-\{x\}$ are open sets of $X$, and when intersected with $A$ remain open sets. They are nonempty, and so form a separation of $X$. A one point subset is obviously connected, and it is the only type of connected subspace of $X$. FIX!%The converse does hold, if there is no subset with more than one point in it that is connected, then every one point set must be open: Suppose there is a set $A\subset X$ with more than one point. By hypothesis, it is disconnected, it has a separation $C$ and $D$, so $C$ and $D$ are open. If $C$ is not a one point set, repeat. Eventually, this procedure yields $C$ and $D$ that are one-point sets, and they are open. Hence, all one point sets are open in a totally disconnected space, which means that the topology is the discrete topology. Messy.
+  \item Let $A\subset X$. Show that if $C$ is a connected subspace of $X$ that intersects both $A$ and $X-A$, then $C$ intersects $\text{Bd } A$. [\hyperref[dfn:boundary]{Boundary}].\\
+  Consider the subsets of $C$, $U=A\cap C$ and $V=(X-A)\cap C$. $U$ and $V$ are cleary a pair of disjoint nonempty sets whose union is $Y$. If $x$ is a limit point of both $A$ and $X-A$, then $x$ will be in the closure of each of these sets, and thus in the intersection of their closure, and so in the boundary of $A$. $C$ must contain $x$; it must be in one of $U$ or $V$, otherwise neither will contain a limit point of the other which would imply that $C$ is not connected.
+  \item Is the space \hyperref[dfn:lowerLimitTopology]{$\R_\ell$} connected? \\
+  It is not. The set $(-\infty,0)$ is open in $\R_\ell$, it is the union of basis elements $[-n,-n+1)$ for $n\in\mathbb{Z}_+$. $[0,\infty)$ is also open, constructed similarly. Together these form a separation of $\R_\ell$.
+  \item Determine whether or not $\R^\omega$ is connected in the uniform topology. \\
+  %If $\R^\omega$ is not closed, then it contains a set that is open and closed. If a typical open set, $B=B_{\bar{p}}(x,\epsilon)$ is also closed, then $A = \R^\omega - B$ is open. $A$ contains some point $y$ such that $\bar{p}(x,y)=\epsilon$. $y$ is a limit point of $B$, every neighborhood of $y$ intersects $B$, therefore $A$ cannot be open and disjoint from $B$, so $B$ is not closed, so $\R^\omega$ is connected in the uniform topology. WRONG
+  \item Let $A$ be a proper subset of $X$, and let $B$ be a proper subset of $Y$. If $X$ and $Y$ are connected, show that $(X\times Y) - (A\times B)$ is connected.
+  \item Let $\{X_\alpha\}_{\alpha\in J}$ be an indexed family of connected spaces; let $X$ be the product space $X=\prod_{\alpha\in J}X_\alpha$. Let $a=(a_\alpha)$ be a fixed point of $X$.
+  \begin{enumerate}
+    \item Given any finite subset $K$ of $J$, let $X_K$ denote the subspace of $X$ consisting of all points $x=(x_\alpha)$ such that $x_\alpha=a_\alpha$ for $a\not\in K$. Show that $X_K$ is connected.
+    \item Show that the union $Y$ of spaces $X_K$ is connected.
+    \item Show that $X$ equals the closure of $Y$; conclude that $X$ is connected.
+  \end{enumerate}
+  \item Let $p:X\rightarrow Y$ be a quotient map. Show that if each set $p^{-1}(\{y\})$ is connected, and $Y$ is connected, then $X$ is connected.
+  \item Let $Y\subset X$; let $X$ and $Y$ be connected. Show that if $A$ and $B$ form a separation of $X-Y$, then $Y\cup A$ and $Y\cup B$ are connected.
+\end{enumerate}
+\end{document}

@@ -1,0 +1,34 @@
+\documentclass[12pt,letterpaper]{article}
+\input{../preamble.sty}
+
+\begin{document}
+\RaggedRight
+\begin{enumerate}
+  \item Check the details of Example 3, repeated here. Let $p$ be the map of the real line $\R$ onto the three point set $A=\{a,b,c\}$ defined by $p(x)=\begin{cases} a &\quad \text{if } x>0 \\ b &\quad \text{if } x<0 \\ c &\quad \text{if } x=0 \end{cases}$. Check that the quotient topology on $A$ induced by $p$ is the following set of subsets of $A$: $\{\{a\},\{b\},\{a,b\},\{a,b,c\}\}$. \\
+  We wish to create a topology such that a set $U$ in $A$ is open if and only if $p{-1}(U)$ is open in $\R$. $p^{-1}(\{a\}) = (0,\infty)$, which is open in $\R$, so $\{a\}$ must be open. Similarly, $\{b\}$ and $\{a,b\}$ must be open. $p^{-1}(\{c\}) = \{0\}$, which is not open, so $\{c\}$ is not open. Similarly for other sets which include $c$, except the entire set $A$, since $p^{-1}(A)=\R$, $A$ is open. 
+  \item \begin{enumerate}
+    \item Let $p: X\rightarrow Y$ be a continuous map. Show that if there is a continuous map $f: Y\rightarrow X$ such that $p\circ f$ equals the identity map of $Y$, then $p$ is a quotient map. \\
+    Suppose there is such a map $f$. Let $V\subset Y$ be open; since $p$ is continuous, $p^{-1}(V)$ is open in $X$. In the other direction, we must show that if $p^{-1}(V)$ is open, then $V$ is open. $f$ is continuous, therefore assuming $p^{-1}(V)$ is open, $f^{-1}(p^{-1}(V))$ will also be open. Since $p\circ f = i$, $f^{-1}\circ p^{-1} = (p\circ f)^{-1} = i^{-1} = i$, $f^{-1}(p^{-1}(V) = V$, so $V$ is open. Hence $p$ is a quotient map.
+    \item If $A \subset X$, a retraction of $x$ onto $A$ is a continuous map $r: X\rightarrow A$ such that $r(a)=a$ for each $a\in A$. Show that a retraction is a quotient map. \\
+    A retraction is clearly surjective. %$r$ is continuous by definition, so for each open subset $V$ of $A$, $U=r^{-1}(V)$ is open.
+    We must show that if $r^{-1}(V)$ is open, then $V$ is open, where $V$ is a subset of $A$. Because of the way $r$ is defined, clearly $r^{-1}(V)$ is some set $U$ such that $U\cap A = V$. Therefore, if $U$ is open, in the subspace topology $U\cap A$ will be open, so $V$ is open, so $r$ is a quotient map.
+  \end{enumerate}
+  \item Let $\pi_1:\R\times\R \rightarrow \R$ be the projection on the first coordinate. Let $A$ be the subspace of $\R\times\R$ consisting of all points $x\times y$ for which either $x\geq 0$ or $y=0$ (or both); let $q: A\rightarrow \R$ be obtained by restricting $\pi_1$. Show that $q$ is a quotient map that is neither open not closed. \\
+  $q$ is clearly surjective. We show that $q$ is continuous. Let $V$ be an open set of $\R$, $V=(a,b)$, with $a,b\in\R$, then $U=q^{-1}(V)=(a,b)\cup (\max(0,a),b)\times\R$ is open, since $U=(a,b)\times\R \cap A$. Now we show the converse, that if $p^{-1}(V)=U$ is open, then $V$ must be open. $U$ is open, therefore it is of the form $(a,b)\times(b,c)\cap A$, and $V$ will be of the form $(a,b)$, an open set. Therefore $q$ is a quotient map.
+  \item \begin{enumerate}
+    \item Define an equivalence relation on the plane $X=\R^2$ as follows: $x_0\times y_0 \sim x_1\times y_1 \text{ if } x_0+y_0^2 = x_1 + y_1^2$. Let $X^*$ be the corresponding quotient space. It is homeomorphic to a familiar space, what is it? [Hint: Set $g(x\times y) = x+y^2$]
+    \item Repeat $(a)$ for the equivalence relation $x_0\times y_0 \sim x_1\times y_1 \quad \text{if } x_0^2+y_0^2 = x_1^2 + y_1^2$.
+  \end{enumerate}
+  \item Let $p: X\rightarrow Y$ be an open map. Show that if $A$ is open in $X$, then the map $q: A\rightarrow p(A)$ obtained by restricting $p$ is an open map.\\
+  Suppose $U$ is open in $X$, then if $A$ is open in $X$, $U\cap A$ is open. Furthermore, $p(U)$ is open, $p(A)$ is open, so $p(U\cap A)$ is open, or equivalently $q(U\cap A)$ is open. $U\cap A$ is a basis for $A$, so $q$ is an open map.
+  \item Recall that $\R_K$ denotes the real line in the \hyperref[dfn:KTopology]{$K$-topology}. Let $Y$ be the quotient space obtained from $\R_K$ by collapsing the set $K$ to a point; let $p: \R_K\rightarrow Y$ be the quotient map.
+  \begin{enumerate}
+    \item Show that $Y$ satisfies the $T_1$ axiom but is not Hausdorff. \\
+    The $K$-Topology is Hausdorff, since it is finer than the standard topology on $\R$, which is Hausdorff. To show that $Y$ satisfies the $T_1$ axiom, we show that each element of the partition $Y$ is closed. Each element besides the point $p(K)$ is clearly closed, it is a one point set in $\R_K$. In the $K$-topology, $K$ is closed, it contains all of it's limit points ($0$ is not a limit point, $(-\epsilon, \epsilon)-K$ is a neighborhood of $0$ that does not intersect $K$). Thus, $Y$ satisfies the $T_1$ axiom.\\
+    Suppose $Y$ were a Hausdorff space, then every pair of distinct points $y_1,y_2\in Y$ have disjoint neighborhoods $V_1, V_2$. Let $y_1=p(K)$ and $y_2=p(0)$. $V_1$ and $V_2$ are disjoint open sets, and $p$ is a quotient map, so $U_1=p^{-1}(V_1)$ and $U_2=p^{-1}(V_2)$ are disjoint open sets of $R_K$. $U_2$ is a neighborhood of $0$, it has an open subset of the form $U_2'=(-\epsilon,\epsilon)-K$. $U_1$ is a neighborhood of $K$, and there exists some point $1/n$ in $K$ such that $1/n<\epsilon$. Any neighborhood of $K$ must have as a subset a neighborhood of this $1/n$, but this neighborhood intersects $U_2'$, and so intersects $U_2$, a contradiction, since these sets should be disjoint. Therefore, $Y$ is not Hausdorff.
+    \item Show that $p\times p : \R_K\times \R_K \rightarrow Y\times Y$ is not a quotient map. [Hint: The diagonal is not closed in $Y\times Y$, but its inverse image is closed in $\R_k\times\R_K$.] \\
+    Consider the set $D=\{y\times y\;|\;y\in Y\}$.  By the previous part, every neighborhood of $p(0)$ intersects some neighborhood of $p(K)$. Therefore, the point $p(K)\times p(0)$ will have neighborhoods $U\times V$, where $U$ is a neighborhood of $f(K)$, and $V$ is a neighborhood of $f(0)$ and so necessarily intersects the $U$ at some point $y$. Therefore, $U\times V$ contains a point $y\times y\in D$, so $f(K)\times f(0)$ is a limit point of $D$ not contained in $D$, so $D$ is not closed.\\
+    Now consider $p^{-1}(D)$. It is Hausdorff, therefore any $x,y$ where $x\neq y$ have disjoint neighborhoods $U,V$, so $x\times Y$ has a neighborhood $U\times V$ which does not intersect $p^{-1}(D)$, so there are no limit points of $p^{-1}(D)$ which are not in $p^{-1}(D)$, so it is closed. Since $D$ is not closed in $Y\times Y$ but its inverse image is closed in $\R_k\times \R_K$, $p\times p$ is not a quotient map.
+  \end{enumerate}
+\end{enumerate}
+\end{document}

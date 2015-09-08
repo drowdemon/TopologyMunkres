@@ -53,7 +53,9 @@
       This converges in each topology to $(0,0,0,\dots)$. Every open set $U$ in the box topology must contain an interval around $0$ for each coordinate, and there will be a $z$ within that interval.
     \end{itemize}
   \end{enumerate}
-  \item Let $\R^\infty$ be the subset of $\R^\omega$ consisting of all sequences that are eventually zero. What is the closure of $\R^\infty$ in $\R^\omega$ in the uniform topology?
+  \item Let $\R^\infty$ be the subset of $\R^\omega$ consisting of all sequences that are eventually zero. What is the closure of $\R^\infty$ in $\R^\omega$ in the uniform topology? \\
+  We claim that $\bar{\R^\infty}$ is the set of all sequences which converge to $0$.  Suppose $x=(x_1,x_2,\dots)$ is such a point, and let $B=B_{\bar{p}}(x,\epsilon)$ be a basis element of the uniform topology containing $x$. There exists some $n$ such that $\bar{d}(x_{i>n},0)<\epsilon$, and so $x_0,\dots,x_n,0,0,\dots$ is a point in $B$ and in $\R^{\infty}$, which means that $x$ is a limit point of $\R^\infty$.\\
+  If $x$ is not a sequence which converges to $0$, then there is an $\epsilon$ such that $\bar{d}(x_i,0)>\epsilon$ for infinitely many $x_i$, and so $x$ is not a limit point of $\R^\infty$. Thus the set of all sequences converging to 0 is the closure of $\R^\infty$ in the uniform topology.
   \item Let $\bar{p}$ be the uniform metric on $\R^\omega$. Given $x = (x_1, x_2, \dots) \in \R^\omega$, and $0<\epsilon < 1$, let $U(x,\epsilon) = (x_1 - \epsilon, x_1+\epsilon) \times \dots \times (x_n-\epsilon, x_n+\epsilon)\times \cdots$
   \begin{enumerate}
     \item Show that $U(x,\epsilon)$ is not equal to the $\epsilon$-ball $B_{\bar{p}}(x,\epsilon)$. \\
