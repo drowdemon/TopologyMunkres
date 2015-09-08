@@ -5,3 +5,4 @@
 *.out
 \#*#
 .emacs.desktop*
+openAll.sh

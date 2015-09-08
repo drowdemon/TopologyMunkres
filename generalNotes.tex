@@ -30,7 +30,7 @@
 \end{itemize}
 \noindent \textbf{Definitions:} \label{sec:Definitions}
 \begin{enumerate}
-  \item \label{sec:EarlyChapters} \begin{itemize} Basics, before continuity.
+  \item \label{sec:EarlyChapters} Basics, before continuity. \begin{itemize}
     \item \label{dfn:functionRestriction} $f|A$: The function $f$ restricted to the domain $A$.
     \item \label{thm:AxiomChoice} The axiom of choice: given a collection $\mathcal{A}$ of disjoint nonempty sets, there exists a set $C$ consisting of exactly one element from each element of $\mathcal{A}$; that is, a set $C$ such that $C$ is contained within the union of elements of $\mathcal{A}$, and for each $A\in\mathcal{A}$, the set $C\cap A$ contains a single element.
     \item \label{dfn:finiteComplementTopology} The finite complement topology $\T_f$: Let $X$ be a set, then $\T_f$ is the collection of all subsets $U$ of $X$ such that $X-U$ is either finite or all of $X$
@@ -130,12 +130,12 @@
   \begin{itemize}
     \item \label{dfn:separation} Separation: Let $X$ is a topological space. A separation of $X$ is a pair $U,V$ of disjoint nonempty open subsets of $X$ whose union is $X$.
     \item \label{dfn:connected} Connected: A space $X$ is connected if there exists no separation of $X$, or equivalently if and only if the subsets of $X$ that are both open and closed in $X$ are the empty set and itself. Any space homeomorphic to a connected space is connected.
-    \item \label{dfn:subspaceSeperation} Separation of a subspace: If $Y$ is a subspace of $X$, a separation of $Y$ is a pair of disjoint nonempty sets $A$ and $B$ whose union is $Y$, neither of which contains a limit point of the other.
-    \item \label{thm:subspaceOfConnected} Subspace of a Connected Space: If $C$ and $D$ form a separation of $X$ and $Y$ is a connected subspace of $X$, then $Y$ lies entirely in $C$ or $D$.
+    \item \label{dfn:subspaceSeparation} Separation of a subspace - Lemma 23.1: If $Y$ is a subspace of $X$, a separation of $Y$ is a pair of disjoint nonempty sets $A$ and $B$ whose union is $Y$, neither of which contains a limit point of the other.
+    \item \label{thm:subspaceOfConnected} Subspace of a Connected Space - Lemma 23.2: If $C$ and $D$ form a separation of $X$ and $Y$ is a connected subspace of $X$, then $Y$ lies entirely in $C$ or $D$.
     \item \label{thm:unionConnected} Union of connected spaces, Theorem 23.3: The union of a collection of connected subspaces of $X$ that have a point in common is connected.
     \item \label{thm:closureConnected} Closure of a connected space: Let $A$ be a connected subspace of $X$. If $A\subset B\subset \bar{A}$, then $B$ is also connected. Equivalently, if $B$ the union of $A$ and some or all of its limit points, then $B$ is connected.
-    \item \label{thm:continuousConnected} The image of a connected space under a continuous map is connected.
-    \item \label{thm:finiteCartesianConnected} A finite cartesian product of connected spaces is connected. The arbitrary product is connected in the product topology.
+    \item \label{thm:continuousConnected} Theorem 23.5: The image of a connected space under a continuous map is connected.
+    \item \label{thm:finiteCartesianConnected} Theorem 23.6: A finite cartesian product of connected spaces is connected. The arbitrary product is connected in the product topology.
   \end{itemize}
 \end{enumerate}
 \textbf{Chapter 1.7} \label{sec:chapter1.7}
