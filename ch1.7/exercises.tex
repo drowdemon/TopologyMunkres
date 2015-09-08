@@ -13,26 +13,28 @@
 
 \begin{document}
 \raggedright
-3. Let $X$ be the set $\{0,1\}$. Show that there is a bijective correspondense between $\mathcal{P}(\mathbb{Z}_+)$ and the cartesian product $X^\omega$ \n
-Let $x=(x_1, x_2, x_3, ...)\in X$ where each $x_i\in \{0,1\}$. \n
-Now define the map
-$$f : X^\omega \rightarrow \mathcal{P}(\mathbb{Z}_+)$$
-to be
-$$f(x) = \{i\, |\, x_i=1\}$$
-$f$ is injective - consider $x_a, x_b$ such that $f(x_a)=f(x_b)$.
-Then for each $i$, $x_{ai}=x_{bi}$, so $x_a=x_b$ \n
-Furthermore, $f$ is surjective. For each $n\in\mathbb{Z}_+$, each subset of $\mathbb{Z}_+$ either contains $n$ or does not. $X$ contains every sequence where $x_n$ is 1 ($n$ is in the subset) and all those where $x_n$ is 0 ($n$ is not in the subset).
-\n
-\n
-5a,b) Countablely infinite, there's a bijective mapping to $\mathbb{Z}_+^n$.
-The set $B_n$ can be bijectively mapped to the set of subsets of $\mathbb{Z}_+$ of size $n$.\n
-c) Uncountable, equivalent to $\mathcal{P}(\mathbb{Z}_+)$.\n
-d,e) Uncountable, assigning a 0 or 1 to each element in $\mathbb{Z}_+$ was shown to be equivalent to $X^\omega$ in 3), which is uncountably infinite.\n
-f) Countable, there is one such function for every choice of whether $n$ is 0 or 1 for all $n$ up to $N$, thus there are $2^N$ such functions.\n
-g) Countable infinite, it's simply the number of subsets of $\mathbb{Z}_+$ of size N.\n
-h) A countable union of the above, thus it is countably infinite.\n
-
-
-
-
+\begin{enumerate}
+  \setcounter{enumi}{2}
+  \item Let $X$ be the set $\{0,1\}$. Show that there is a bijective correspondense between $\mathcal{P}(\mathbb{Z}_+)$ and the cartesian product $X^\omega$ \n
+  \indent Let $x=(x_1, x_2, x_3, ...)\in X$ where each $x_i\in \{0,1\}$. \n
+  Now define the map
+  $$f : X^\omega \rightarrow \mathcal{P}(\mathbb{Z}_+)$$
+  to be
+  $$f(x) = \{i\, |\, x_i=1\}$$
+  $f$ is injective - consider $x_a, x_b$ such that $f(x_a)=f(x_b)$.
+  Then for each $i$, $x_{ai}=x_{bi}$, so $x_a=x_b$ \n
+  Furthermore, $f$ is surjective. For each $n\in\mathbb{Z}_+$, each subset of $\mathbb{Z}_+$ either contains $n$ or does not. $X$ contains every sequence where $x_n$ is 1 ($n$ is in the subset) and all those where $x_n$ is 0 ($n$ is not in the subset).
+  \addtocounter{enumi}{1}
+  \begin{enumerate}
+    \item (also part b) Countablely infinite, there's a bijective mapping to $\mathbb{Z}_+^n$.
+    The set $B_n$ can be bijectively mapped to the set of subsets of $\mathbb{Z}_+$ of size $n$.
+    \addtocounter{enumii}{1}
+    \item Uncountable, equivalent to $\mathcal{P}(\mathbb{Z}_+)$.
+    \item (also part e) Uncountable, assigning a 0 or 1 to each element in $\mathbb{Z}_+$ was shown to be equivalent to $X^\omega$ in 3), which is uncountably infinite.
+    \addtocounter{enumii}{1}
+    \item Countable, there is one such function for every choice of whether $n$ is 0 or 1 for all $n$ up to $N$, thus there are $2^N$ such functions.
+    \item Countable infinite, it's simply the number of subsets of $\mathbb{Z}_+$ of size N.
+    \item A countable union of the above, thus it is countably infinite.
+  \end{enumerate}
+\end{enumerate}
 \end{document}

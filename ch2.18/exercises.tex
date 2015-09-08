@@ -1,29 +1,5 @@
 \documentclass[12pt,letterpaper]{article}
-\usepackage[pdftex]{graphicx}
-\usepackage{alltt}
-\usepackage[margin=1in]{geometry}
-\usepackage{amsmath, amsthm, amssymb}
-\usepackage{verbatim}
-\usepackage{ragged2e}
-\usepackage{enumitem}
-\usepackage{xfrac}
-\setlist{parsep=0pt,listparindent=\parindent}
-\setlength{\RaggedRightParindent}{\parindent}
-\newcommand{\degree}{\ensuremath{^\circ}}
-\newcommand{\n}{\break}
-\let\oldemptyset\emptyset
-\let\emptyset\varnothing
-\newcommand{\Wlog}{without loss of generality}
-\newcommand{\WLOG}{Without loss of generality}
-\usepackage{accents}
-\let\thinbar\bar
-\newcommand\thickbar[1]{\accentset{\rule{.4em}{.8pt}}{#1}}
-\let\bar\thickbar
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%THIS DOCUMENT ONLY%
-\newcommand{\T}{\ensuremath{\mathcal{T}}}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{../preamble.sty}
 
 \begin{document}
 \RaggedRight
@@ -31,7 +7,7 @@
   \setcounter{enumi}{1}
   \item Suppose that $f: X\rightarrow Y$ is continuous. If $x$ is a limit point of the subset $A$ of $X$, is it necessarily true that $f(x)$ is a limit point of $f(A)$.\n
   \indent Consider the topology on the set $X=\{a,b,c\}$: $\T_1 = \{\{a,b\}, \{b,c\},\{a,b,c\},\emptyset\}$, and the topology on the set $Y=\{d,e\}$: $\T_2 = \{\emptyset, \{d,e\}\}$. The mapping $F: X\rightarrow Y$ is defined such that $f(a)=d,\ f(b)=e,\ f(c)=e$. The limit points of $\{b\}$ are $a$ and $c$. However, the limit point of $\{f(b)\}=\{e\}$ is $d$. $f(c)=e$ cannot be a limit point, since the open set containing it, $\{e\}$, only intersects $\{f(b)\}$ at itself, not any other point. That the mapping is continuous is easy to check.\n
-  \indent In general, let $V$ be a neighborhood of $f(x)$. Then $f^{-1}(V)$ is an open set of $X$ containing $x$, so it must intersect $A$ at some point $y$. $f(y)\in V$ and $f(y)\in f(A)$, therefore $V$ intersects $f(A)$ at $f(y)$. If $f(y)\in f(x)$ for all such points $y$ then $f(x)$ is not a limit point, but if this is false for all open sets $V$, $f(x)$ will be a limit point of $A$.
+  \indent In general, let $V$ be a neighborhood of $f(x)$. Then $f^{-1}(V)$ is an open set of $X$ containing $x$, so it must intersect $A$ at some point $y$. $f(y)\in V$ and $f(y)\in f(A)$, therefore $V$ intersects $f(A)$ at $f(y)$. If $f(y)=f(x)$ for all such points $y$ then $f(x)$ is not a limit point, but if this is false for all open sets $V$, $f(x)$ will be a limit point of $f(A)$.
   \item Let $X$ and $X'$ denote a single set in the two toplogies $\T$ and $\T'$, respectively. Let $i: X'\rightarrow X$ be the identity function.
   \begin{enumerate}
     \item Show that $i$ is continuous $\leftrightarrow \T'$ is finer than $\T$.\hspace{5in}\n
@@ -57,18 +33,50 @@
   \item Let $Y$ be an ordered set in the order topology. Let $f,g: X\rightarrow Y$ be continuous.
   \begin{enumerate}
     \item Show that the set $B=\{x\;|\; f(x)\leq g(x)\}$ is closed in $X$.\hspace{5in}\n
-    \indent Define $A=X-B$ For any $x\in A$, for each of its neighborhoods $V_f=f(x)$, $U_f=f^{-1}(V_f)$ is open, and for each of its neighborhoods $V_g=g(x)$, $U_g=g^{-1}(V_g)$ is open. It is sufficient to consider only neighborhoods that are basis elements. Then, since $x\in A$, there exist neighborhoods $V_f$ and $V_g$ such that the smallest element in $V_f$ is greater than the largest element in $V_g$. $U_f$ is an open set containing $x$, and furthermore, since the smallest element in $V_f$ is greater than the largest element in $V_g$, every element in $U_f$ is contained in $A$. The union of open sets is open, so the union of such an open set for every $x$ in $A$ is an open set, this union will yield exactly $A$.
+    \indent Define $A=X-B$ For any $x\in A$, for each of its neighborhoods $V_f=f(x)$, $U_f=f^{-1}(V_f)$ is open, and for each of its neighborhoods $V_g=g(x)$, $U_g=g^{-1}(V_g)$ is open. It is sufficient to consider only neighborhoods that are basis elements. Then, since $x\in A$, there exist neighborhoods $V_f$ and $V_g$ such that the smallest element in $V_f$ is greater than the largest element in $V_g$. $U_f$ is an open set containing $x$, and furthermore, since the smallest element in $V_f$ is greater than the largest element in $V_g$, every element in $U_f$ is contained in $A$. The union of open sets is open, so the union of such an open set for every $x$ in $A$ is an open set, this union will yield exactly $A$. $A$ is the complement of $B$, so since $A$ is open, $B$ is closed.
     \item Let $h: X\rightarrow Y$ be the function $h(x)=\min(f(x),g(x))$. Show that $h$ is continuous.\hspace{5in}\n
-    \indent Consider $A=\{x\;|\; f(x)\leq g(x)\}$ and $B=\{x\;|\; g(x)\leq f(x)\}$. $A$ and $B$ are closed by the previous part. Clearly, $x\in A\cap B\rightarrow f(x)=g(x)$, by antisymmetry of an order relation. By the pasting lemma, the minimum of these two functions is closed.
+    \indent Consider $A=\{x\;|\; f(x)\leq g(x)\}$ and $B=\{x\;|\; g(x)\leq f(x)\}$. $A$ and $B$ are closed by the previous part. Clearly, $x\in A\cap B\rightarrow f(x)=g(x)$, by antisymmetry of an order relation. By the \hyperref[thm:PastingLemma]{pasting lemma}, the minimum of these two functions is a continuous function. \n
   \end{enumerate}
   \item Let $\{A_\alpha\}$ be a collection of subsets of $X$; let $X=\bigcup_\alpha A_\alpha$. Let $f: X\rightarrow Y$; suppose that $f|A_\alpha$ is continuous for each $\alpha$. 
   \begin{enumerate}
     \item Show that if the collection $\{A_\alpha\}$ is finite and each set $A_\alpha$ is closed, then $f$ is continuous.\hspace{5in}\n
-    \indent The local formulation of continuity shows that this would be true if each $A$ were open. Furthermore, by part 3 of theorem 18.1, just like for open sets, if $f$ is continuous, then for every closed set $B$ of $Y$, the set $f^{-1}(B)$ is closed in $X$. Consider such a closed set $B$ of $Y$. $f^{-1}(V)\cap A_\alpha = (f|A_\alpha)^{-1}(B)$: both expressions are exactly those points $x$ in $A_\alpha$ such that $f(a)\in B$. Since $f|A_\alpha$ is continuous, $(f|A_\alpha)^{-1}(B)$ is closed. $f^{-1}(B) = \bigcup_\alpha(f|A_\alpha)^{-1}(B)$. The finite union of closed sets is closed, so $f^{-1}(B)$ is closed, so $f$ is continuous.
+    \indent The \hyperref[thm:LocalFormulationContinuity]{local formulation of continuity} shows that this would be true if each $A$ were open. Furthermore, by \hyperref[dfn:continuous3]{part 3 of definition of continuity}, just like for open sets, if $f$ is continuous, then for every closed set $B$ of $Y$, the set $f^{-1}(B)$ is closed in $X$. Consider such a closed set $B$ of $Y$. $f^{-1}(B)\cap A_\alpha = (f|A_\alpha)^{-1}(B)$: both expressions are exactly those points $x$ in $A_\alpha$ such that $f(a)\in B$. Since $f|A_\alpha$ is continuous, $(f|A_\alpha)^{-1}(B)$ is closed. $f^{-1}(B) = \bigcup_\alpha(f|A_\alpha)^{-1}(B)$. The finite union of closed sets is closed, so $f^{-1}(B)$ is closed, so $f$ is continuous.
     \item Find an example where the collection $\{A_\alpha\}$ is countable and each $A_\alpha$ is closed, but $f$ is not continuous.\hspace{5in}\n
     \indent Consider 
-    $$A_0={0} \text{ and } A_{n>0}=\{\frac{1}{n}\text{, and } f(x)=\begin{cases} x & \quad x\neq 0 \\ 10 & \quad x=0\end{cases}$$
-    \item An indexed family of sets $\{A_\alpha\}$ is said to be $\emph{locally finite}$ is each point $x$ of $X$ has a neighborhood that intersects $A_\alpha$ for only finitely many values of $\alpha$. Show that if the family $\{A_\alpha\}$ is locally finite and each $A_\alpha$ is closed, then $f$ is continuous.
+    $$A_{n>0}=\left\{\frac{1}{n}\right\}\text{, and } f(x)=\begin{cases} x & \quad x\neq 1 \\ 0 & \quad x=1\end{cases}$$
+    Where $f: \bigcup_\alpha A_\alpha \rightarrow \mathbb{R}$. Each $A_\alpha$ is closed in the topology inherited as a subspace of $\mathbb{R}$, and each $f|A_\alpha$ is clearly continuous, as both the identity function and the constant function are continuous. Consider $V=[0,\sfrac{1}{2}]$, a closed set in $\mathbb{R}$. Then, $f^{-1}(B)$ is not closed, since it does not contain $0$. Therefore, $f$ is not continuous.
+    \item An indexed family of sets $\{A_\alpha\}$ is said to be $\emph{locally finite}$ if each point $x$ of $X$ has a neighborhood that intersects $A_\alpha$ for only finitely many values of $\alpha$. Show that if the family $\{A_\alpha\}$ is locally finite and each $A_\alpha$ is closed, then $f$ is continuous.\hspace{5in}\n
+    %\indent The proof proceeds exactly as the proof of part a. The requirement of local finiteness exists because of the last step - the \emph{finite} union of closed sets is closed. To get $f^{-1}(B)$ there is no need to take the union over all $\alpha$, but rather only finitely many $\alpha$. \n
+    %In detail: Consider a closed set $V$ of $Y$. $f^{-1}(V)\cap A_\alpha = (f|A_\alpha)^{-1}(V)$. Each $f|A_\alpha$ is continuous, therefore each $(f|A_\alpha)^{-1}(V)$ is closed. Consider any point $x$ such that $f(x)\in V$. Each such $x$ has a neighborhood $U$ that intersects $A_\alpha$ for finitely many values of alpha, call the intersected family of sets $\{B_\beta\}$.
+    \indent Consider a point $x$ in $X$, which by hypothesis has a neighborhood $U_x$ which intersects a finite number of $A_\alpha$s, collect all such $A_\alpha$s in an indexed family of sets $B_\beta$. Each $f|B_\beta$ is continuous and each $B_\beta$ is closed, so $f|\bigcup_\beta B_\beta$ is continuous by repeated application of \hyperref[thm:PastingLemma]{the pasting lemma}. $U_x \subset \bigcup_\beta B_\beta$, so restricting the domain to $U_x$ gives a continuous function $f|U_x$. Such a function exists for each $x$, and $X$ is the union of such open sets $U_x$, so by the \hyperref[thm:LocalFormulationContinuity]{local formulation of continuity} $f$ is continuous.
   \end{enumerate}
+  \item Let $f: A \rightarrow B$ and $g: C \rightarrow D$ be continuous functions. Let us define a map $f\times g: A\times C \rightarrow B\times D$ by the equation $$(f\times g)(a\times c) = f(a) \times g(c).$$ Show that $f\times g$ is continuous.\hspace{5in}\n
+  \indent Define $X = A\times C$. Then define $f_1: X\rightarrow B$ as $f_1(a \times c) = f(a)$ and $g_1: X\rightarrow D$ as $g_1(a \times c) = g(c)$.
+  $f_1$ and $g_1$ are continuous, so by \hyperref[thm:MapsProducts18.4]{theorem 18.4} $f\times g$ is continuous.
+  \item Let $F:X\times Y \rightarrow Z$. We say that $F$ is \emph{continuous in each variable separately} if for each $y_0$ in $Y$, the map $h: X\rightarrow Z$ defined by $h(x)=F(x\times y_0)$ is continuous, and for each $x_0$ in $X$, the map $k:Y\rightarrow Z$ defined by $k(y) = F(x_0 \times y)$ is continuous. Show that if $F$ is continuous, then $F$ is continuous in each variable separately. \hspace{5in} \n
+  \indent $F$ is continuous, therefore for each open subset $V$ of $Z$ the set $F^{-1}(V)$ is open. For any $y_0\in Y$, define the set $H_0 = \{X\times y_0\}$. The restricted function $F|H_0: H_0 \rightarrow Z$ is continuous, and equivalent to the function $h$.
+  \item Let $F: \mathbb{R} \times \mathbb{R} \rightarrow \mathbb{R}$ be defined by the equation
+    $$F(x\times y) = \begin{cases}
+      xy/(x^2+y^2) & \quad x\times y \neq 0\times 0 \\
+      0            & \quad x\times y = 0\times 0
+    \end{cases}$$
+    \begin{enumerate}
+      \item Show that $F$ is continuous in each variable separately. \hspace{5in} \n
+      \indent Setting $y$ to an arbitrary constant $c$ gets the rational function $h(x) = c*x/(x^2+c^2)$, and since the denominator is always positive this function is continuous. If $c=0$ then the function is simply $0$ at all points, so it is continuous. 
+      \item Compute the function $g: \mathbb{R} \rightarrow \mathbb{R}$ defined by $g(x) = F(x\times x)$\hspace{5in}\n
+      $$g(x) = \begin{cases} 1/2 & \quad x\neq 0 \\ 0 & \quad x=0 \end{cases}$$
+      \item Show that $F$ is not continuous.\hspace{5in}\n
+      \indent The previous part shows a discontinuity when $x=y$ and both approach 0 together, the function jumps from $1/2$ to $0$.
+    \end{enumerate}
+    \item Let $A\subset X$; let $f: A\rightarrow Y$ be continuous; let $Y$ be Hausdorff. Show that if $f$ may be extended to a continuous function $g: \bar{A}\rightarrow Y$, then $g$ is uniquely determined by $f$. \hspace{5in}\n
+    \indent Suppose that $g$ is not uniquely determined by $f$, there is another such extension $h$. Consider a point $x$ that is in $\bar{A}$ but not $A$. Suppose $V$ is a neighborhood of $g(x)$; since $g(x)$ is continuous, $U=g^{-1}(V)$ is an open set containing $x$. Let $V_2$ be a neighborhood of $h(x)$ disjoint from $V$. Then, $U_2=h^{-1}(V_2)$ is a neighborhood of $x$. $x$ is a limit point of $A$, thus there exists points $y\in U$ and $y_2\in U_2$ that must both be in $A$, and $g(y)=h(y)=f(y), g(y_2)=h(y_2)=f(y_2)$. %$V$ contains infinitely many points of $g(\bar{A})$, and $W$ contains infinitely many points of $h(\bar{A})$, since \hyperref[thm:LimitPointT1]{all neighborhoods of a limit point contain infinitely many points of the set}.
+    % Any finite point set in $Y$ is closed, in particular $g(x)$ is closed, so the set $V\cap (Y-g(x))$ is open, as is $V_2 \cap (Y-h(x))$.
+    We now consider two cases - where $U \cap U_2 = \{x\}$ and where there is at least one other point of intersection.
+    \begin{itemize}
+      \item [Case 1:] There exist disjoint neighborhoods $V$ and $V_2$ that yield a $U$ and $U_2$ such that $U \cap U_2 = \{x\}$. Thus $\{x\}$ is an open set which contains no elements of $A$, which contradicts the fact that $x$ is a limit point.
+      \item [Case 2:] $U \cap U_2$ contains some $y\in A$. $g(y)=h(y)=f(y)$. Thus, $f(y)$ was in both $V_1$ and $V_2$, a contradiction, as those were disjoint.
+    \end{itemize}
+    Thus, $g(x) = h(x)$ for all $x$.
+    $\qed$
 \end{enumerate}
 \end{document}
