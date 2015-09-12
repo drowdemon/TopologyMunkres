@@ -1,0 +1,21 @@
+\documentclass[12pt,letterpaper]{article}
+\input{../preamble.sty}
+
+\begin{document}
+\RaggedRight
+\begin{enumerate}
+  \item \begin{enumerate}
+    \item Show that no two of the spaces $(0,1), (0,1], [0,1]$ are homeomorphic. [Hint: what happens if you remove a point from each of these spaces?] \\
+    Suppose $(0,1)$ and $(0,1]$ are homeomorphic; $f:(0,1)\rightarrow (0,1]$ is the homeomorphism. Now consider $A=(0,1) - \{f^{-1}(1)\} = (0,f^{-1}(1)) \cup (f^{-1}(1),1)$. $f|A: A\rightarrow (0,1)$ is also a homeomorphism. However, $A$ is not connected, while $(0,1)$ is connected, a contradiction. The others proceed similarly.
+    \item Suppose there exist embeddings $f: X\rightarrow Y$ and $g: Y\rightarrow X$. Show by means of example that $X$ and $Y$ need not be homeomorphic. \\
+    Consider $X=(0,1)$ and $Y=[0,1]$. Then $f(x) = x$ is an embedding, since when considered as a function from $X$ to $(0,1)\subset Y$ it is a homeomorphism. $g(y)=y/2+1/4$ is also an embedding, since when considered as a map to $[1/4,3/4]\subset X$ it is a homeomorphism. However, by the previous part, $X$ and $Y$ are not homeomorphic.
+    \item Show that $\R^n$ and $\R$ are not homeomorphic if $n>1$.
+    Suppose they are, there exists a homeomorphism $f:\R\rightarrow\R^n$. Consider the spaces $A=\R-\{0\}$ and $B=\R^n-{f(0)}$. The restricted function $f|A: A\rightarrow B$ is still a homeomorphism. However, $A$ is not path-connected, whereas $B$ is punctured euclidean space, it is path-connected. (Example 4 elaborates). Like connectivity, path-connectivity is clearly a topological property, therefore if two spaces are homeomorphic, either both are path-connected or neither is path-connected. Therefore, we have a contradiction.
+  \end{enumerate}
+  \item Let $f:S^1\rightarrow\R$ be a continuous map. Show that there exists a point $x$ of $S^1$ such that $f(x)=f(-x)$.
+  % Consider some point $a\in S^1$. Let $A=S^1-\{a\}$. The map $f|A: A \rightarrow \R - \{f(a)\}$ is continuous, since it is the restriction of the domain and range of a continuous function. \\
+  % Suppose the opposite, there is no such point $x$.
+  Consider some point $y\in\R$ in the image set of $S^1$. Now let $A=S^1-f^{-1}(y)$ and $B=\R-\{y\}$. $B$ is not connected, $(-\infty,y)\cap B, (y,\infty)\cap B$ is a separation of $B$. Since the restricted function $f|A: A\rightarrow B$ is also continuous, and $B$ isn't connected, $A$ must not be connected. However $S^1$ without a single point is connected (PROVE THAT?), so $f^{-1}(y)$ must contain at least $2$ points (PROVE THAT WITH 2 IT'S NOT CONNECTED?). \\
+  This is true for almost $y$ in the image set of $S^1$ (the exceptions are the endpoints, if the set is some $[y_1,y_2]$. We choose a $y$ that is not an endpoint. This exists - otherwise $f$ is a constant function so the hypothesis is trivially true.) Let $a,b\in f^{-1}(y)$ be distinct. 
+\end{enumerate}
+\end{document}

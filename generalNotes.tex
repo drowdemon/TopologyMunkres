@@ -13,6 +13,7 @@
     \item[] \hyperref[dfn:metric]{Metrics}
     \item[] \hyperref[dfn:quotientMapTopology]{Quotient Maps, Spaces, and Topology}
     \item[] \hyperref[sec:connectedness]{Connected Spaces}
+    \item[] \hyperref[sec:connectedRealLine]{Connected Subspaces of the Real Line}
   \end{itemize}
   \item[]  Exercises
   \begin{itemize}
@@ -26,12 +27,15 @@
     \item[] \hyperref[sec:chapter2.21]{Chapter 2 Section 21}
     \item[] \hyperref[sec:chapter2.22]{Chapter 2 Section 22}
     \item[] \hyperref[sec:chapter3.23]{Chapter 3 section 23}
+    \item[] \hyperref[sec:chapter3.24]{Chapter 3 section 24}
   \end{itemize}
 \end{itemize}
 \noindent \textbf{Definitions:} \label{sec:Definitions}
 \begin{enumerate}
   \item \label{sec:EarlyChapters} Basics, before continuity. \begin{itemize}
     \item \label{dfn:functionRestriction} $f|A$: The function $f$ restricted to the domain $A$.
+    \item \label{dfn:simpleOrder} A relation $C$ is an order, simple order, or linear order if it is comparable: for every distinct $x,y$, either $xCy$ or $yCx$; nonreflexive: for no $x$ is $xCx$ true; and transitive, if $xCy$ and $yCz$ then $xCz$.
+    \item \label{dfn:leastUpperBoundProperty} Least Upper Bound Property: Any set that has an upper bound has a least upper bound.
     \item \label{thm:AxiomChoice} The axiom of choice: given a collection $\mathcal{A}$ of disjoint nonempty sets, there exists a set $C$ consisting of exactly one element from each element of $\mathcal{A}$; that is, a set $C$ such that $C$ is contained within the union of elements of $\mathcal{A}$, and for each $A\in\mathcal{A}$, the set $C\cap A$ contains a single element.
     \item \label{dfn:finiteComplementTopology} The finite complement topology $\T_f$: Let $X$ be a set, then $\T_f$ is the collection of all subsets $U$ of $X$ such that $X-U$ is either finite or all of $X$
     \item \label{dfn:finer} Finer: $\T_1$ is finer than $\T_2$ implies that $\T_2\subseteq \T_1$, in other words, $\T_1$ has all the open sets of $\T_2$ and more.
@@ -137,6 +141,13 @@
     \item \label{thm:continuousConnected} Theorem 23.5: The image of a connected space under a continuous map is connected.
     \item \label{thm:finiteCartesianConnected} Theorem 23.6: A finite cartesian product of connected spaces is connected. The arbitrary product is connected in the product topology.
   \end{itemize}
+  \item \label{sec:connectedRealLine} Connected Subspaces of the Real Line, chapter 3 section 24
+  \begin{itemize}
+    \item \label{dfn:linearContinuum} Linear Continuum: a \hyperref[dfn:simpleOrder]{simply ordered} set $L$ having more than one element, the \hyperref[dfn:leastUpperBoundProperty]{least upper bound property}, and the property that if $x<y$, then there exists a $z$ such that $x<z<y$.
+    \item \label{thm:continuumConnected} Theorem 24.1: A linear continuum, and rays and intervals within it are connected. $\R$ is connected.
+    \item \label{thm:IntermediateValue} Intermediate Value Theorem, 24.3: Let $f:X\rightarrow Y$ be a continuous map, where $X$ is a connected space and $Y$ is an ordered set in the order topology. If $a$ and $b$ are two points of $X$ and if $r$ is a point of $Y$ lying between $f(a)$ and $f(b)$, then there exists a point $c$ of $X$ such that $f(c)=r$.
+    \item \label{dfn:pathConnected} Path and Path Connected: A path in $X$ from point $x$ to point $y$ of $X$ is a continuous map $f:[a,b]\rightarrow X$ of some closed interval of the real line into $X$, such that $f(a)=x$ and $f(b)=y$. A space $X$ is said to be path connected if every pair of points of $X$ can be joined by a path in $X$.
+  \end{itemize}
 \end{enumerate}
 \textbf{Chapter 1.7} \label{sec:chapter1.7}
 \input{./ch1.7/exercises.tex}
@@ -160,4 +171,6 @@
 \input{./ch2.22/exercises.tex}
 \textbf{Chapter 3.23} \label{sec:chapter3.23}
 \input{./ch3.23/exercises.tex}
+\textbf{Chapter 3.24} \label{sec:chapter3.24}
+\input{./ch3.24/exercises.tex}
 \end{document}
